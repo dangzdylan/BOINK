@@ -33,12 +33,12 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         addVolumeButton(self: self)
         addLeaderboardButton(self: self)
         addShopButton(self: self)
-        addInventoryButton(self: self, pos: CGPoint(x: leaderboardButton.position.x - screenHeight/18, y: leaderboardButton.position.y))
+        addInventoryButton(self: self, pos: CGPoint(x: leaderboardButton.position.x - screenHeight/18, y: leaderboardButton.position.y), diameter: screenHeight / 30)
 
         determineRank(self:self)
         
         
-        
+
     }
     
     

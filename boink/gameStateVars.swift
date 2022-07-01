@@ -72,6 +72,8 @@ public struct SPKey{
     static var menuSlideDownSoundPlayer: AVAudioPlayer?
     static var titleStompSoundPlayer: AVAudioPlayer?
     static var monsterDispenseSoundPlayer: AVAudioPlayer?
+    static var mysteryBoxShakeSoundPlayer: AVAudioPlayer?
+    static var mysteryBoxDispenseSoundPlayer: AVAudioPlayer?
 }
 
 

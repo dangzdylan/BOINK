@@ -16,10 +16,11 @@ import UIKit
 class InventoryScene: SKScene{
     
     override func didMove(to view: SKView) {
-        addBackToGameButton(self: self, pos: CGPoint(x: 0, y: -self.frame.height/2 + screenHeight/20))
+        addBackToGameButton(self: self, pos: CGPoint(x: 0, y: -self.frame.height/2 + screenHeight/16), diameter: screenHeight / 25)
         addInvNodes(self: self)
         getIndexOfEquippedSkin()
-        addResetButton(self: self)
+        //addResetButton(self: self)
+        addInventoryBackground(self: self)
         //print(userDefaults.value(forKey: UDKey.inventory)!)
     }
     

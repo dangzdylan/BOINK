@@ -25,9 +25,12 @@
 		FC274267273897F600BE46B6 /* BluenightRegular.otf in Resources */ = {isa = PBXBuildFile; fileRef = FC274264273897F600BE46B6 /* BluenightRegular.otf */; };
 		FC274268273897F600BE46B6 /* info.txt in Resources */ = {isa = PBXBuildFile; fileRef = FC274265273897F600BE46B6 /* info.txt */; };
 		FC274269273897F600BE46B6 /* BluenightRegular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = FC274266273897F600BE46B6 /* BluenightRegular.ttf */; };
+		FC2DED5E286EB6FA00AC5F6A /* skinRevealScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC2DED5D286EB6FA00AC5F6A /* skinRevealScene.swift */; };
+		FC2DED60286EB9F000AC5F6A /* SkinRevealScene.sks in Resources */ = {isa = PBXBuildFile; fileRef = FC2DED5F286EB9F000AC5F6A /* SkinRevealScene.sks */; };
 		FC3686AE27A918A1007CF7E5 /* version.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC3686AD27A918A1007CF7E5 /* version.swift */; };
 		FC5AB61F270D68E1009535D5 /* scoring.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC1DE3F626DC8CB400BD359E /* scoring.swift */; };
 		FC63C32A26ED691300738FB2 /* checklist.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC63C32926ED691300738FB2 /* checklist.swift */; };
+		FC698537286A7C9100FEAC95 /* mysteryBoxShake.wav in Resources */ = {isa = PBXBuildFile; fileRef = FC698536286A7C9100FEAC95 /* mysteryBoxShake.wav */; };
 		FC6C5AFF27C8B55B0078DBDC /* inventoryVars.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC6C5AFE27C8B55B0078DBDC /* inventoryVars.swift */; };
 		FC6C5B0127C8CB790078DBDC /* SKINS.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC6C5B0027C8CB790078DBDC /* SKINS.swift */; };
 		FC83E577277147C900748FB4 /* launchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FC83E576277147C900748FB4 /* launchScreen.storyboard */; };
@@ -95,8 +98,11 @@
 		FC274264273897F600BE46B6 /* BluenightRegular.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = BluenightRegular.otf; sourceTree = "<group>"; };
 		FC274265273897F600BE46B6 /* info.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = info.txt; sourceTree = "<group>"; };
 		FC274266273897F600BE46B6 /* BluenightRegular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = BluenightRegular.ttf; sourceTree = "<group>"; };
+		FC2DED5D286EB6FA00AC5F6A /* skinRevealScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = skinRevealScene.swift; sourceTree = "<group>"; };
+		FC2DED5F286EB9F000AC5F6A /* SkinRevealScene.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = SkinRevealScene.sks; sourceTree = "<group>"; };
 		FC3686AD27A918A1007CF7E5 /* version.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = version.swift; sourceTree = "<group>"; };
 		FC63C32926ED691300738FB2 /* checklist.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = checklist.swift; sourceTree = "<group>"; };
+		FC698536286A7C9100FEAC95 /* mysteryBoxShake.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = mysteryBoxShake.wav; sourceTree = "<group>"; };
 		FC6C5AFE27C8B55B0078DBDC /* inventoryVars.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = inventoryVars.swift; sourceTree = "<group>"; };
 		FC6C5B0027C8CB790078DBDC /* SKINS.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SKINS.swift; sourceTree = "<group>"; };
 		FC83E576277147C900748FB4 /* launchScreen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = launchScreen.storyboard; sourceTree = "<group>"; };
@@ -162,6 +168,7 @@
 		FC0E00DC26D34737000C3987 /* sound effects */ = {
 			isa = PBXGroup;
 			children = (
+				FC698536286A7C9100FEAC95 /* mysteryBoxShake.wav */,
 				FC1A46F8275DEA03008D625A /* monsterDispense.wav */,
 				FCD64291275C975800C505C3 /* titleStomp.wav */,
 				FCD0E5C8275C0E4F006C6A48 /* menuSlide.wav */,
@@ -191,6 +198,7 @@
 		FC56C0E526EE87560048F165 /* sks */ = {
 			isa = PBXGroup;
 			children = (
+				FC2DED5F286EB9F000AC5F6A /* SkinRevealScene.sks */,
 				FC00130027C37929006106D5 /* CrateOpeningScene.sks */,
 				FCDBEDD127C209A700B4977D /* InventoryScene.sks */,
 				FCDBEDCB27C2078300B4977D /* ShopScene.sks */,
@@ -237,6 +245,7 @@
 				FCDBEDCD27C2079A00B4977D /* ShopScene.swift */,
 				FC00130427C37993006106D5 /* openingFuncs.swift */,
 				FC00130227C3793B006106D5 /* CrateOpeningScene.swift */,
+				FC2DED5D286EB6FA00AC5F6A /* skinRevealScene.swift */,
 				FC6C5AFE27C8B55B0078DBDC /* inventoryVars.swift */,
 				FCDBEDC927C1CD5500B4977D /* inventoryFuncs.swift */,
 				FCDBEDCF27C2094100B4977D /* InventoryScene.swift */,
@@ -397,6 +406,7 @@
 			files = (
 				FC274267273897F600BE46B6 /* BluenightRegular.otf in Resources */,
 				FC00130127C37929006106D5 /* CrateOpeningScene.sks in Resources */,
+				FC2DED60286EB9F000AC5F6A /* SkinRevealScene.sks in Resources */,
 				FC274269273897F600BE46B6 /* BluenightRegular.ttf in Resources */,
 				FC074A89274F133D00B95747 /* gameOver.wav in Resources */,
 				FCBEB22826D0A46F000E1FD0 /* GameScene.sks in Resources */,
@@ -408,6 +418,7 @@
 				FCBEB23326D0A46F000E1FD0 /* Assets.xcassets in Resources */,
 				FCD64292275C975800C505C3 /* titleStomp.wav in Resources */,
 				FC074A87274F0F7700B95747 /* collectCoin.wav in Resources */,
+				FC698537286A7C9100FEAC95 /* mysteryBoxShake.wav in Resources */,
 				FCDBEDD227C209A700B4977D /* InventoryScene.sks in Resources */,
 				FC274268273897F600BE46B6 /* info.txt in Resources */,
 				FCBEB22A26D0A46F000E1FD0 /* Actions.sks in Resources */,
@@ -462,6 +473,7 @@
 				FC6C5B0127C8CB790078DBDC /* SKINS.swift in Sources */,
 				FC1DE3CF26DC8C7300BD359E /* borders.swift in Sources */,
 				FC0E00F126D3788F000C3987 /* textures.swift in Sources */,
+				FC2DED5E286EB6FA00AC5F6A /* skinRevealScene.swift in Sources */,
 				FC1DE3EC26DC8CA000BD359E /* Player.swift in Sources */,
 				FCDBEDCE27C2079A00B4977D /* ShopScene.swift in Sources */,
 				FCDBEDC827C1BFFA00B4977D /* shopVars.swift in Sources */,
@@ -642,7 +654,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.2.0;
+				MARKETING_VERSION = 2.0.0;
 				PRODUCT_BUNDLE_IDENTIFIER = DzungDang.boink;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
@@ -666,7 +678,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.2.0;
+				MARKETING_VERSION = 2.0.0;
 				PRODUCT_BUNDLE_IDENTIFIER = DzungDang.boink;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";

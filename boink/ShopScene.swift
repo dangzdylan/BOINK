@@ -18,8 +18,11 @@ class ShopScene : SKScene{
     override func didMove(to view: SKView) {
         addCoinPurseText(self: self)
         addCrateImage(self: self)
-        addBackToGameButton(self: self, pos: CGPoint(x: 0, y: -self.frame.height/2 + screenHeight/20))
+        addBackToGameButton(self: self, pos: CGPoint(x: 0, y: -self.frame.height/2 + screenHeight/20), diameter: screenHeight / 25)
         addBuyButton(self: self)
+        
+        let temp = CrateOpeningScene(fileNamed: "CrateOpeningScene")
+        //self.scene?.view?.presentScene(temp!, transition: SKTransition.fade(withDuration: 0.3))
         
     
     }

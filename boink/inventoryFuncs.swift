@@ -12,10 +12,10 @@ import GameKit
 import UIKit
 
 //INV BUTTON ON OTHER SCENES
-func addInventoryButton(self:SKScene, pos:CGPoint){
+func addInventoryButton(self:SKScene, pos:CGPoint, diameter: CGFloat){
     
-    let diameter = screenHeight / 30
-    inventoryButton = SKSpriteNode(color: .blue, size: CGSize(width: diameter, height: diameter))
+    let d = diameter
+    inventoryButton = SKSpriteNode(color: .blue, size: CGSize(width: d, height: d))
     inventoryButton.position  = pos
     inventoryButton.texture = SKTexture(imageNamed: "inventoryButton")
     
@@ -28,6 +28,14 @@ func goToInventory(self:SKScene){
     let temp = InventoryScene(fileNamed: "InventoryScene")
     self.scene?.view?.presentScene(temp!, transition: SKTransition.fade(withDuration: 1))
     
+}
+
+func addInventoryBackground(self:SKScene){
+    let background = SKSpriteNode(imageNamed: "inventoryBackground")
+    background.size = self.frame.size
+    background.position = CGPoint(x: self.frame.midX, y: self.frame.midY)
+    background.zPosition = -CGFloat(UInt8.max)
+    self.addChild(background)
 }
 
 //ADD NODES
@@ -51,7 +59,8 @@ func addInvNodes(self:SKScene){
     //EQUIP AND MODEL NODE
     equipButton = SKSpriteNode(color: .orange, size: CGSize(width: screenHeight/10, height: screenHeight/25))
     equipButton.texture = SKTexture(imageNamed: "equipButton")
-    equipButton.position = CGPoint(x:0, y: -screenHeight/6 + yCoord)
+    equipButton.position = CGPoint(x:0, y: -screenHeight/8 + yCoord)
+    //equipButton.position = CGPoint(x:0, y: -screenHeight/6 + yCoord)
     setEquipButtonAsEquipped()
     
     makeModelNode(pos: CGPoint(x:inventoryNodeX, y:yCoord), node: &skinModelNode)

@@ -26,12 +26,11 @@ func checkForChangeLevel(self:SKScene){
         fourthLevel(self:self)
     }else if scoreNum == 4 * tempMultiplier1{
         fifthLevel(self:self)
-        coinMultiplier += 1
     }else if scoreNum == 5 * tempMultiplier1{
         sixthLevel(self: self)
+        coinMultiplier += 1
     }else if scoreNum == 6 * tempMultiplier1{
         seventhLevel(self: self)
-        coinMultiplier += 1
     }else if scoreNum == 7 * tempMultiplier1{
         eigthLevel(self: self)
     }else if scoreNum == 8 * tempMultiplier1{
@@ -41,10 +40,9 @@ func checkForChangeLevel(self:SKScene){
         tenthLevel(self: self)
     }else if scoreNum == 10 * tempMultiplier1{
         eleventhLevel(self: self)
-        coinMultiplier += 2
+        coinMultiplier += 1
     }else if scoreNum == 6 * tempMultiplier2{
         twelfthLevel(self: self)
-        coinMultiplier += 1
     }else if scoreNum == 7 * tempMultiplier2{
         thirteenthLevel(self: self)
         coinMultiplier += 1

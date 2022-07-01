@@ -31,8 +31,8 @@ func goToShop(self:SKScene){
 
 
 //AWAY FROM SHOPSCENE
-func addBackToGameButton(self:SKScene, pos: CGPoint){
-    let backButtonSize = screenHeight / 25
+func addBackToGameButton(self:SKScene, pos: CGPoint, diameter: CGFloat){
+    let backButtonSize = diameter
     backToGameButton = SKSpriteNode(color: .purple, size: CGSize(width: backButtonSize, height: backButtonSize))
     backToGameButton.position = pos
     backToGameButton.texture = SKTexture(imageNamed: "backButton")
@@ -64,6 +64,7 @@ func attemptPurchase(self: SKScene){
         let temp = CrateOpeningScene(fileNamed: "CrateOpeningScene")
         self.scene?.view?.presentScene(temp!, transition: SKTransition.fade(withDuration: 0.3))
     }
+    //print(userDefaults.object(forKey: UDKey.commonRemainingSkins) as! [String])
 }
 
 func unsuccessfulPurchase(self: SKScene){
@@ -100,11 +101,13 @@ func addCrateImage(self:SKScene){
     crateImage = SKSpriteNode(color: .purple, size: CGSize(width: screenHeight/6, height: screenHeight/6))
     crateImage.position = CGPoint(x:0, y:screenHeight/15)
     crateImage.zPosition = crateImageZPosition
+    crateImage.texture = SKTexture(imageNamed: "mysteryBox")
     
     
-    crateImage2 = SKSpriteNode(color: .green, size: CGSize(width: screenHeight/14, height: screenHeight/14))
+    crateImage2 = SKSpriteNode(color: .green, size: CGSize(width: screenHeight/10, height: screenHeight/10))
     crateImage2.position = crateImage.position
     crateImage2.zPosition = crateImageZPosition + 2
+    crateImage2.texture = SKTexture(imageNamed: "mysteryBox2")
     
     self.addChild(crateImage)
     self.addChild(crateImage2)

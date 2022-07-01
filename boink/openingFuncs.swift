@@ -17,7 +17,7 @@ func chosenRandomSkin(self: SKScene) -> ObjectSkin{
     let skin:[String]
     
     //TAKE OUT SECOND CONDITION!!!!!!!!!!!!!!!!!!!
-    if userDefaults.value(forKey: UDKey.commonRemainingSkins) == nil{ //|| userDefaults.value(forKey: UDKey.commonRemainingSkins) as! [String] == []{
+    if userDefaults.value(forKey: UDKey.commonRemainingSkins) == nil{
         userDefaults.setValue(Skins.common, forKey: UDKey.commonRemainingSkins)
         userDefaults.setValue(Skins.epic, forKey: UDKey.epicRemainingSkins)
     }
@@ -52,66 +52,50 @@ func crateOpeningAnimation(self:SKScene){
     let moveLeft = SKAction.moveTo(x: -diff, duration: 0.15)
     let moveCenter = SKAction.moveTo(x: 0, duration: 0.075)
     let initPause = SKAction.wait(forDuration: 0.7)
+    let bigPause = SKAction.wait(forDuration: 1.8)
     
     
-    //CHOSE SKIN AND MAKE SKIN NODE
-    let chosen = chosenRandomSkin(self: self)
     
-    let skinNodeImage = SKSpriteNode(color: .white, size: CGSize(width: screenHeight/16, height: screenHeight/16))
-    skinNodeImage.texture = chosen.faceDown
-    skinNodeImage.position = crateImage.position
-    skinNodeImage.zPosition = crateImageZPosition + 1
-    skinNodeImage.removeFromParent()
     
-    let skinMoveOut = SKAction.moveTo(y: -screenHeight/10, duration: 0.5)
-    skinMoveOut.timingMode = .easeOut
+    let mysteryPackage = SKSpriteNode(color: .black, size: CGSize(width: screenHeight/18, height: screenHeight/18))
+    mysteryPackage.texture = SKTexture(imageNamed: "mysteryPackage")
+    mysteryPackage.position = crateImage.position
+    mysteryPackage.zPosition = crateImageZPosition + 1
+    mysteryPackage.removeFromParent()
+    
+    let packMoveOut = SKAction.run{
+        let move = SKAction.moveTo(y: -screenHeight/10, duration: 0.5)
+        move.timingMode = .easeOut
+        
+        mysteryPackage.run(move)
+    
+    }
     
     //shake
     let shakeCrate = [initPause, moveRight, moveLeft, moveRight, moveLeft, moveRight, moveLeft, moveRight, moveLeft, moveRight, moveLeft, moveRight, moveLeft, moveCenter]
     
     //reveal skin
-    let addSkin = SKAction.run {
-        self.addChild(skinNodeImage)
+    let addMysterySkin = SKAction.run {
+        self.addChild(mysteryPackage)
     }
     
-    //zoom skin
-    let zoomInSkin = SKAction.run {
-        
-        //zoom in and fade out crate
-        let dur = 0.6
-        crateImage.run(SKAction.fadeOut(withDuration: dur))
-        crateImage2.run(SKAction.fadeOut(withDuration: dur))
-        skinNodeImage.run(SKAction.resize(toWidth: screenHeight/8 , height: screenHeight/8 , duration: dur))
-        skinNodeImage.run(SKAction.moveTo(y: screenHeight/12, duration: dur))
-        
-        //add back and inv button
-        Timer.scheduledTimer(withTimeInterval: dur * 2, repeats: false){timer in
-            print("HIHIHIHIHI")
-            //back
-            addBackToGameButton(self: self, pos: CGPoint(x: -screenHeight/20, y: -screenHeight/12))
-            backToGameButton.alpha = 0
-            backToGameButton.run(SKAction.fadeIn(withDuration: dur/2))
-            
-            //inv
-            addInventoryButton(self: self, pos: CGPoint(x: screenHeight/20, y: -screenHeight/12))
-            inventoryButton.alpha = 0
-            inventoryButton.run(SKAction.fadeIn(withDuration: dur/2))
-        }
-        
+    //zoom in on mysterypackage
+    let zoomIn = SKAction.run{
+        let t = 0.7
+        crateImage.run(SKAction.fadeOut(withDuration: t))
+        crateImage2.run(SKAction.fadeOut(withDuration: t))
+        mysteryPackage.run(SKAction.resize(toWidth: screenHeight/10 , height: screenHeight/10 , duration: t))
+        mysteryPackage.run(SKAction.moveTo(y: 0, duration: t))
     }
     
-    let moveSkin = SKAction.run{
-        skinNodeImage.run(SKAction.sequence([initPause, skinMoveOut]))
-        Timer.scheduledTimer(withTimeInterval: 2, repeats: false){timer in
-
-            skinNodeImage.run(zoomInSkin)
-            }
+    //transition scene
+    let nextScene = SKAction.run {
+        let temp = SkinRevealScene(fileNamed: "SkinRevealScene")
+        self.scene?.view?.presentScene(temp!, transition: SKTransition())
     }
     
-    //TODO
-    
-    crateImage.run(SKAction.sequence(shakeCrate))
-    crateImage2.run(SKAction.sequence(shakeCrate + [addSkin, moveSkin]))
+    crateImage.run(SKAction.sequence(shakeCrate + [addMysterySkin, initPause, packMoveOut,initPause, zoomIn, bigPause, nextScene]))
+    crateImage2.run(SKAction.sequence(shakeCrate))
     
     
     
@@ -151,4 +135,67 @@ func determinedSkinRarity(skin: ObjectSkin) -> String{
     }else{
         return UDKey.legendaryRemainingSkins
     }
+}
+
+
+
+
+
+
+
+//SKIN REVEAL FUNCS
+
+
+
+func addChosenSkin(self: SKScene){
+    let whiteFlash = SKSpriteNode(color: .white, size: self.frame.size)
+    whiteFlash.position = CGPoint(x:0, y:0)
+    whiteFlash.zPosition = CGFloat(Int8.max)
+    
+    let chosen = chosenRandomSkin(self: self)
+    
+    let chosenNode = SKSpriteNode(color: .white, size: CGSize(width: screenHeight/11 , height: screenHeight/11))
+    chosenNode.texture = chosen.faceDown
+    chosenNode.position = CGPoint(x:0, y:0)
+    
+    let chosenName = SKLabelNode(text: chosen.skinName)
+    chosenName.fontSize = screenHeight/18 * 5 / CGFloat(chosen.skinName.count)
+    chosenName.fontName = currentFont
+    chosenName.position = CGPoint(x: 0, y: screenHeight/10)
+    chosenName.fontColor = .white
+    chosenName.alpha = 0
+    
+    self.addChild(whiteFlash)
+    self.addChild(chosenNode)
+    self.addChild(chosenName)
+    
+    
+    let pause = SKAction.wait(forDuration: 0.4)
+    let fade = SKAction.fadeOut(withDuration: 1)
+    let addName = SKAction.run{
+        chosenName.run(SKAction.fadeIn(withDuration: 0.7))
+    }
+    let addButtons = SKAction.run{
+        addSkinRevealButtons(self: self)
+    }
+    
+    whiteFlash.run(SKAction.sequence([pause, fade, pause, addName, pause, pause, addButtons]))
+    
+    
+    
+}
+
+
+func addSkinRevealButtons(self:SKScene){
+    let dur = 0.8
+    //back
+    addBackToGameButton(self: self, pos: CGPoint(x: -screenHeight/20, y: -screenHeight/9), diameter: screenHeight/22)
+    backToGameButton.alpha = 0
+    backToGameButton.run(SKAction.fadeIn(withDuration: dur))
+    
+    //inv
+    addInventoryButton(self: self, pos: CGPoint(x: screenHeight/20, y: -screenHeight/9), diameter: screenHeight/22)
+    inventoryButton.alpha = 0
+    inventoryButton.run(SKAction.fadeIn(withDuration: dur))
+    
 }

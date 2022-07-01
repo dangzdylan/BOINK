@@ -24,6 +24,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         prepareSound(soundName: "menuSlide", type: "wav", volume: 1, soundPlayer: &SPKey.menuSlideDownSoundPlayer)
         prepareSound(soundName: "titleStomp", type: "wav", volume: 0.8, soundPlayer: &SPKey.titleStompSoundPlayer)
         prepareSound(soundName: "monsterDispense", type: "wav", volume: 1, soundPlayer: &SPKey.monsterDispenseSoundPlayer)
+        prepareSound(soundName: "mysteryBoxShake", type: "wav", volume: 1.2, soundPlayer: &SPKey.mysteryBoxShakeSoundPlayer)
+        prepareSound(soundName: "mysteryBoxDispense", type: "wav", volume: 1, soundPlayer: &SPKey.mysteryBoxDispenseSoundPlayer)
         return true
     }
 
