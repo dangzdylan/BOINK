@@ -164,6 +164,8 @@ func leftArrowClicked(self:SKScene){
 
 //ANIMATION
 func rotatePresentedSkin(self: SKScene, nodeA: inout SKSpriteNode, nodeB: inout SKSpriteNode, rightClicked: Bool, curObj: ObjectSkin){
+    //sound
+    playSound(soundPlayer: SPKey.inventoryArrowClick)
     
     
     //check if next is equipped
@@ -212,7 +214,8 @@ func rotatePresentedSkin(self: SKScene, nodeA: inout SKSpriteNode, nodeB: inout 
 func addResetButton(self:SKScene){
     
     resetButton = SKSpriteNode(color: .red, size: CGSize(width: screenHeight/20, height: screenHeight/20))
-    resetButton.position = CGPoint(x: -screenHeight/10, y: -screenHeight/7)
+    resetButton.texture = SKTexture(imageNamed: "resetButton")
+    resetButton.position = CGPoint(x: -screenHeight/14, y: -screenHeight/7)
     
     self.addChild(resetButton)
 }
@@ -220,8 +223,6 @@ func addResetButton(self:SKScene){
 func resetStats(self:SKScene){
     userDefaults.setValue(["0"], forKey: UDKey.inventory)
     userDefaults.setValue("0", forKey: UDKey.equippedSkin)
-    userDefaults.setValue(Skins.common, forKey: UDKey.commonRemainingSkins)
-    userDefaults.setValue(Skins.epic, forKey: UDKey.epicRemainingSkins)
 }
 
 

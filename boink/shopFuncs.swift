@@ -168,10 +168,10 @@ func addCoinPurseText(self:SKScene){
 //MORECOMINGSOON
 
 func checkAvailableSkins(self:SKScene){
-    if userDefaults.object(forKey: UDKey.commonRemainingSkins) == nil && userDefaults.object(forKey: UDKey.epicRemainingSkins) == nil {
-        attemptPurchase(self: self)
-    }
-    else if (userDefaults.object(forKey: UDKey.commonRemainingSkins) as! [String] == []) && (userDefaults.object(forKey: UDKey.epicRemainingSkins) as! [String] == []){
+    let inv = userDefaults.value(forKey: UDKey.inventory) as! [String]
+    
+    //inv.count - 1 cuz default in inv
+    if (Skins.common.count + Skins.epic.count == inv.count - 1){
         addMoreSkinsComingSoonBox(self: self)
         buyButtonAnimationActive = true
     }else{

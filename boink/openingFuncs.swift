@@ -10,29 +10,24 @@ import GameplayKit
 import AVFoundation
 import GameKit
 import UIKit
+import SwiftUI
 
 
 func chooseRandomSkin(self: SKScene){
     let randomNum = Int.random(in: 0..<101)
-    let skin:[String]
+    let skins:[String]
     
-    if userDefaults.value(forKey: UDKey.commonRemainingSkins) == nil{
-        userDefaults.setValue(Skins.common, forKey: UDKey.commonRemainingSkins)
-        userDefaults.setValue(Skins.epic, forKey: UDKey.epicRemainingSkins)
-    }
-    
-    
-     
-    //COMMON
-    if (randomNum <= 95 && userDefaults.object(forKey: UDKey.commonRemainingSkins) as! [String] != []) || (userDefaults.object(forKey: UDKey.epicRemainingSkins) as! [String] == []){
-        skin = userDefaults.object(forKey: UDKey.commonRemainingSkins) as! [String]
-    //EPIC
+    if randomNum <= 95{
+        skins = availableSkins(rarity: rarityKey.common)
     }else{
-        skin = userDefaults.object(forKey: UDKey.epicRemainingSkins) as! [String]
+        skins = availableSkins(rarity: rarityKey.epic)
     }
+    
+    print(skins)
+    
      
      
-    let chosenSkin = skin.randomElement()!
+    let chosenSkin = skins.randomElement()!
     
     
     addToInventory(skinID: chosenSkin)
@@ -41,9 +36,55 @@ func chooseRandomSkin(self: SKScene){
     
     
     
-    //return skinDictionary[chosenSkin]!
 }
 
+func availableSkins(rarity: Int) -> [String]{
+    var avaSkins:[String] = []
+    let ownedSkins = userDefaults.value(forKey: UDKey.inventory) as! [String]
+    
+    if rarity == rarityKey.common{
+        for skin in Skins.common{
+            if !ownedSkins.contains(skin){
+                avaSkins.append(skin)
+            }
+        }
+        
+        //no more in common
+        if avaSkins.count == 0{
+            for skin in Skins.epic{
+                if !ownedSkins.contains(skin){
+                    avaSkins.append(skin)
+                }
+            }
+        }
+    }else if rarity == rarityKey.epic{
+        for skin in Skins.epic{
+            if !ownedSkins.contains(skin){
+                avaSkins.append(skin)
+            }
+        }
+        
+        //no more in epic
+        if avaSkins.count == 0{
+            for skin in Skins.common{
+                if !ownedSkins.contains(skin){
+                    avaSkins.append(skin)
+                }
+            }
+        }
+        
+    }
+    
+    
+    return avaSkins
+    
+}
+
+
+
+
+
+//CRATE
 func crateOpeningAnimation(self:SKScene){
     
     //SHAKE CRATE VARS
@@ -136,25 +177,8 @@ func addToInventory(skinID: String){
     }else{
         userDefaults.setValue(["0", skinID], forKey: UDKey.inventory)
     }
-    
-    //take out skin from remaining set of skins
-    var tempArr = userDefaults.object(forKey: determinedSkinRarity(skin: skin!)) as! [String]
-    tempArr = tempArr.filter{ $0 != skinID}
-    userDefaults.setValue(tempArr, forKey: determinedSkinRarity(skin: skin!))
 }
 
-//skin rarity (in addToInventory func)
-func determinedSkinRarity(skin: ObjectSkin) -> String{
-    if skin.rarity == rarityKey.common{
-        return UDKey.commonRemainingSkins
-    }else if skin.rarity == rarityKey.rare{
-        return UDKey.rareRemainingSkins
-    }else if skin.rarity == rarityKey.epic{
-        return UDKey.epicRemainingSkins
-    }else{
-        return UDKey.legendaryRemainingSkins
-    }
-}
 
 
 

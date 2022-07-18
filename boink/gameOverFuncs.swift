@@ -43,7 +43,7 @@ func gameOverAnimation(self: SKScene){
     
     
     Timer.scheduledTimer(withTimeInterval: 0.3, repeats: false){timer in
-        Player.colorBlendFactor = 0.93
+        Player.colorBlendFactor = 0.875
         //Player.texture = deadPlayerTexture()
     }
      

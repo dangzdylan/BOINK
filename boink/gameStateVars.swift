@@ -54,10 +54,6 @@ public struct UDKey{
     static let playerLookDown = "playerLookDown"
     static let volumeOn = "volumeOn"
     static let currentAppVersion = "currentAppVersion"
-    static let commonRemainingSkins = "commonRemainingSkins"
-    static let rareRemainingSkins = "rareRemainingSkins"
-    static let epicRemainingSkins = "epicRemainingSkins"
-    static let legendaryRemainingSkins = "legendaryRemainingSkins"
     static let equippedSkin = "equippedSkin"
     
 }
@@ -81,6 +77,7 @@ public struct SPKey{
     static var buttonClick: AVAudioPlayer?
     static var equippedButtonClick: AVAudioPlayer?
     static var shopPurchaseFail: AVAudioPlayer?
+    static var inventoryArrowClick: AVAudioPlayer?
 }
 
 

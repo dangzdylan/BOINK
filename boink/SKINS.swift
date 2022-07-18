@@ -37,7 +37,6 @@ public let skinDictionary = [
     "0" : ObjectSkin(name: "Default", textures: skinPackage(name: "default"), rarity: rarityKey.def, skinType: typeKey.player, background: backColor.common),
     //common
     
-    
     "1" : ObjectSkin(name: "NINJA", textures: skinPackage(name: "blueNinja"), rarity: rarityKey.common, skinType: typeKey.player, background: backColor.common),
     "2": ObjectSkin(name: "FROST", textures: skinPackage(name: "frost"), rarity: rarityKey.common, skinType: typeKey.player, background: backColor.common),
     "3" : ObjectSkin(name: "PINKY", textures: skinPackage(name: "pinky"), rarity: rarityKey.common, skinType: typeKey.player, background: backColor.common),
@@ -51,18 +50,16 @@ public let skinDictionary = [
     "11" : ObjectSkin(name: "PURP", textures: skinPackage(name: "purple"), rarity: rarityKey.common, skinType: typeKey.player, background: backColor.common),
     "12" : ObjectSkin(name: "DARK", textures: skinPackage(name: "darkDefault"), rarity: rarityKey.common, skinType: typeKey.player, background: backColor.common),
     
-    //rare
+    
+    
+    
     
     //epic
     "101" : ObjectSkin(name: "GOLD", textures: skinPackage(name: "goldenDefault"), rarity: rarityKey.epic, skinType: typeKey.player, background: backColor.goldenDefault),
-/*
-    "11" : ObjectSkin(name: "epic1", textures: monsterSpawningTextures, rarity: rarityKey.epic, skinType: typeKey.player),
-    "12" : ObjectSkin(name: "epic2", textures: monsterSpawningTextures, rarity: rarityKey.epic, skinType: typeKey.player),
-    "13" : ObjectSkin(name: "epic3", textures: monsterSpawningTextures, rarity: rarityKey.epic, skinType: typeKey.player),
- */
+
      
     
-    //legendary
+   
 ]
 
 public struct Skins{
