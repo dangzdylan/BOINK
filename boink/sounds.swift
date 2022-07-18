@@ -35,6 +35,8 @@ func playSound(soundPlayer: AVAudioPlayer?){
         DispatchQueue.background(delay: 0.0, background:{
             soundPlayer!.play()
         })
+    }else{
+        print("SOUND DID NOT PLAY")
     }
 }
 

@@ -12,36 +12,36 @@ import GameKit
 import UIKit
 
 
-func chosenRandomSkin(self: SKScene) -> ObjectSkin{
-    //let randomNum = Int.random(in: 1..<101)
+func chooseRandomSkin(self: SKScene){
+    let randomNum = Int.random(in: 0..<101)
     let skin:[String]
     
-    //TAKE OUT SECOND CONDITION!!!!!!!!!!!!!!!!!!!
     if userDefaults.value(forKey: UDKey.commonRemainingSkins) == nil{
         userDefaults.setValue(Skins.common, forKey: UDKey.commonRemainingSkins)
         userDefaults.setValue(Skins.epic, forKey: UDKey.epicRemainingSkins)
     }
     
-    /*
+    
      
-    //FOR EPIC SKINS FUTURE UPDATE
     //COMMON
-    if (randomNum <= 95 && userDefaults.object(forKey: UDKey.commonRemainingSkins) as! [String] != []) || (userDefaults.object(forKey: UDKey.epicRemainingSkins) as! [String] != []){
+    if (randomNum <= 95 && userDefaults.object(forKey: UDKey.commonRemainingSkins) as! [String] != []) || (userDefaults.object(forKey: UDKey.epicRemainingSkins) as! [String] == []){
         skin = userDefaults.object(forKey: UDKey.commonRemainingSkins) as! [String]
     //EPIC
     }else{
-        
         skin = userDefaults.object(forKey: UDKey.epicRemainingSkins) as! [String]
     }
      
-     */
-    
-    skin = userDefaults.object(forKey: UDKey.commonRemainingSkins) as! [String]
+     
     let chosenSkin = skin.randomElement()!
     
     
     addToInventory(skinID: chosenSkin)
-    return skinDictionary[chosenSkin]!
+    currentUnboxedSkinInd = chosenSkin
+    currentUnboxedSkin = skinDictionary[chosenSkin]!
+    
+    
+    
+    //return skinDictionary[chosenSkin]!
 }
 
 func crateOpeningAnimation(self:SKScene){
@@ -52,14 +52,20 @@ func crateOpeningAnimation(self:SKScene){
     let moveLeft = SKAction.moveTo(x: -diff, duration: 0.15)
     let moveCenter = SKAction.moveTo(x: 0, duration: 0.075)
     let initPause = SKAction.wait(forDuration: 0.7)
-    let bigPause = SKAction.wait(forDuration: 1.8)
+    let smPause = SKAction.wait(forDuration: 0.2)
+    let bigPause = SKAction.wait(forDuration: 2.4)
     
     
     
     
-    let mysteryPackage = SKSpriteNode(color: .black, size: CGSize(width: screenHeight/18, height: screenHeight/18))
-    mysteryPackage.texture = SKTexture(imageNamed: "mysteryPackage")
-    mysteryPackage.position = crateImage.position
+    let mysteryPackage = SKSpriteNode(color: .black, size: CGSize(width: screenHeight/25, height: screenHeight/25))
+    
+    if currentUnboxedSkin.rarity == rarityKey.common || currentUnboxedSkin.rarity == rarityKey.def{
+        mysteryPackage.texture = SKTexture(imageNamed: "mysteryPackage")
+    }else{
+        mysteryPackage.texture = SKTexture(imageNamed: "goldenMysteryPackage")
+    }
+    mysteryPackage.position = CGPoint(x: crateImage.position.x, y: crateImage.position.y - screenHeight/18)
     mysteryPackage.zPosition = crateImageZPosition + 1
     mysteryPackage.removeFromParent()
     
@@ -71,12 +77,24 @@ func crateOpeningAnimation(self:SKScene){
     
     }
     
+    var x = 0
+    let shakeSound  = SKAction.run {
+        if x == 0{
+            playSound(soundPlayer: SPKey.mysteryBoxShakeSoundPlayer)
+        }
+        x += 1
+    }
+    
     //shake
-    let shakeCrate = [initPause, moveRight, moveLeft, moveRight, moveLeft, moveRight, moveLeft, moveRight, moveLeft, moveRight, moveLeft, moveRight, moveLeft, moveCenter]
+    let shakeCrate = [initPause, shakeSound, moveRight, moveLeft, moveRight, moveLeft, moveRight, moveLeft, moveRight, moveLeft, moveRight, moveLeft, moveRight, moveLeft, moveCenter]
     
     //reveal skin
     let addMysterySkin = SKAction.run {
         self.addChild(mysteryPackage)
+    }
+    
+    let chaching = SKAction.run {
+        playSound(soundPlayer: SPKey.chaching)
     }
     
     //zoom in on mysterypackage
@@ -84,8 +102,9 @@ func crateOpeningAnimation(self:SKScene){
         let t = 0.7
         crateImage.run(SKAction.fadeOut(withDuration: t))
         crateImage2.run(SKAction.fadeOut(withDuration: t))
-        mysteryPackage.run(SKAction.resize(toWidth: screenHeight/10 , height: screenHeight/10 , duration: t))
+        mysteryPackage.run(SKAction.resize(toWidth: screenHeight/8 , height: screenHeight/8 , duration: t))
         mysteryPackage.run(SKAction.moveTo(y: 0, duration: t))
+        playSound(soundPlayer: SPKey.mysteryBoxDispenseSoundPlayer)
     }
     
     //transition scene
@@ -94,7 +113,7 @@ func crateOpeningAnimation(self:SKScene){
         self.scene?.view?.presentScene(temp!, transition: SKTransition())
     }
     
-    crateImage.run(SKAction.sequence(shakeCrate + [addMysterySkin, initPause, packMoveOut,initPause, zoomIn, bigPause, nextScene]))
+    crateImage.run(SKAction.sequence(shakeCrate + [addMysterySkin, chaching, smPause, initPause, packMoveOut, initPause,initPause, zoomIn, bigPause, nextScene]))
     crateImage2.run(SKAction.sequence(shakeCrate))
     
     
@@ -143,43 +162,128 @@ func determinedSkinRarity(skin: ObjectSkin) -> String{
 
 
 
+
+
+
+
 //SKIN REVEAL FUNCS
 
 
 
 func addChosenSkin(self: SKScene){
+    
     let whiteFlash = SKSpriteNode(color: .white, size: self.frame.size)
     whiteFlash.position = CGPoint(x:0, y:0)
-    whiteFlash.zPosition = CGFloat(Int8.max)
+    whiteFlash.zPosition = CGFloat(Int8.max - 1)
     
-    let chosen = chosenRandomSkin(self: self)
+    //boxbreak
+    let brokenPackage1 = SKSpriteNode(color: .blue, size: CGSize(width: screenHeight/8, height: screenHeight/8))
+    brokenPackage1.position = CGPoint(x:-screenHeight/300, y:0)
+    brokenPackage1.alpha = 0.75
+    brokenPackage1.zPosition = whiteFlash.zPosition + 1
     
-    let chosenNode = SKSpriteNode(color: .white, size: CGSize(width: screenHeight/11 , height: screenHeight/11))
-    chosenNode.texture = chosen.faceDown
+    let brokenPackage2 = SKSpriteNode(color: .blue, size: CGSize(width: screenHeight/8, height: screenHeight/8))
+    brokenPackage2.position = CGPoint(x:screenHeight/300, y:0)
+    brokenPackage2.alpha = 0.75
+    brokenPackage2.zPosition = whiteFlash.zPosition + 1
+    
+    if currentUnboxedSkin.rarity == rarityKey.common{
+        brokenPackage1.texture = SKTexture(imageNamed: "mysteryPackageBreak1")
+        brokenPackage2.texture = SKTexture(imageNamed: "mysteryPackageBreak2")
+    }else{
+        brokenPackage1.texture = SKTexture(imageNamed: "goldenMysteryPackageBreak1")
+        brokenPackage2.texture = SKTexture(imageNamed: "goldenMysteryPackageBreak2")
+        
+        whiteFlash.color = color(hex: "FBF4B5")
+    }
+    
+    //skin
+    let chosenNode = SKSpriteNode(color: .white, size: CGSize(width: screenHeight/5.8 , height: screenHeight/5.8))
+    if currentUnboxedSkin.rarity == rarityKey.epic{
+        chosenNode.size = CGSize(width: screenHeight/4.7, height: screenHeight/4.7)
+    }
+    chosenNode.texture = currentUnboxedSkin.faceDown
     chosenNode.position = CGPoint(x:0, y:0)
     
-    let chosenName = SKLabelNode(text: chosen.skinName)
-    chosenName.fontSize = screenHeight/18 * 5 / CGFloat(chosen.skinName.count)
+    
+    //name
+    let chosenName = SKLabelNode(text: currentUnboxedSkin.skinName)
+    chosenName.fontSize = screenHeight/18 * 5 / CGFloat(currentUnboxedSkin.skinName.count)
     chosenName.fontName = currentFont
     chosenName.position = CGPoint(x: 0, y: screenHeight/10)
-    chosenName.fontColor = .white
+    chosenName.fontColor = .black
     chosenName.alpha = 0
+    
+    let youUnlocked = SKLabelNode(text: "YOU HAVE UNLOCKED:")
+    youUnlocked.fontSize = screenHeight/60
+    youUnlocked.fontName = currentFont
+    youUnlocked.position = CGPoint(x:0, y: screenHeight/5.6)
+    youUnlocked.fontColor = .black
+    youUnlocked.alpha = 0
+    
     
     self.addChild(whiteFlash)
     self.addChild(chosenNode)
     self.addChild(chosenName)
+    self.addChild(youUnlocked)
+    self.addChild(brokenPackage1)
+    self.addChild(brokenPackage2)
     
-    
+    //actions
+    let halfPause = SKAction.wait(forDuration: 0.2)
     let pause = SKAction.wait(forDuration: 0.4)
-    let fade = SKAction.fadeOut(withDuration: 1)
+    let fade = SKAction.fadeOut(withDuration: 0.5)
+    
+    //breaks
+    let breakPackage = SKAction.run{
+        let d = 0.1
+        let rm = SKAction.run{
+            brokenPackage1.removeFromParent()
+            brokenPackage2.removeFromParent()
+        }
+        brokenPackage1.run(SKAction.sequence([SKAction.move(to: CGPoint(x: -self.frame.width, y: 0), duration: d), rm]))
+        brokenPackage2.run(SKAction.move(to: CGPoint(x: self.frame.width, y: 0), duration: d))
+        
+    }
+    
+    //THUMP SKIN
+    let nodeBob = SKAction.run{
+        let nodeBobBack = SKAction.resize(toWidth: screenHeight/11, height: screenHeight/11, duration: 0.65)
+        nodeBobBack.timingMode = .easeIn
+        
+        chosenNode.run(nodeBobBack)
+        playSound(soundPlayer: SPKey.titleStompSoundPlayer)
+        
+        
+    }
+    
+    //add text
+    let addUnlocked = SKAction.run{
+        youUnlocked.run(SKAction.fadeIn(withDuration: 0.3))
+    }
+    
+    //play reveal music
+    let playMusic = SKAction.run {
+        if currentUnboxedSkin.rarity == rarityKey.common{
+            playSound(soundPlayer: SPKey.revealSkinMusic)
+        }else if currentUnboxedSkin.rarity == rarityKey.epic{
+            playSound(soundPlayer: SPKey.epicRevealSkinMusic)
+        }
+    }
+    
+    
     let addName = SKAction.run{
         chosenName.run(SKAction.fadeIn(withDuration: 0.7))
     }
+    
+    //add buttons
     let addButtons = SKAction.run{
         addSkinRevealButtons(self: self)
     }
     
-    whiteFlash.run(SKAction.sequence([pause, fade, pause, addName, pause, pause, addButtons]))
+    //call
+    playSound(soundPlayer: SPKey.mysteryPackageBreak)
+    whiteFlash.run(SKAction.sequence([pause, SKAction.group([breakPackage, fade, nodeBob]), pause, pause, addUnlocked, halfPause, playMusic, halfPause, addName, pause, pause, addButtons]))
     
     
     
@@ -189,13 +293,20 @@ func addChosenSkin(self: SKScene){
 func addSkinRevealButtons(self:SKScene){
     let dur = 0.8
     //back
-    addBackToGameButton(self: self, pos: CGPoint(x: -screenHeight/20, y: -screenHeight/9), diameter: screenHeight/22)
+    addBackToGameButton(self: self, pos: CGPoint(x: -screenHeight/20, y: -screenHeight/6), diameter: screenHeight/22)
     backToGameButton.alpha = 0
     backToGameButton.run(SKAction.fadeIn(withDuration: dur))
     
     //inv
-    addInventoryButton(self: self, pos: CGPoint(x: screenHeight/20, y: -screenHeight/9), diameter: screenHeight/22)
+    addInventoryButton(self: self, pos: CGPoint(x: screenHeight/20, y: -screenHeight/6), diameter: screenHeight/22)
     inventoryButton.alpha = 0
     inventoryButton.run(SKAction.fadeIn(withDuration: dur))
+    
+    //equip
+    addEquipButton(self: self, pos: CGPoint(x: 0 , y: -screenHeight/9), size: CGSize(width: screenHeight/10, height: screenHeight/25))
+    equipButton.alpha = 0
+    equipButton.run(SKAction.fadeIn(withDuration: dur))
+    
+    
     
 }

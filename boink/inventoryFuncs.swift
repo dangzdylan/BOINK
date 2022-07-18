@@ -24,9 +24,12 @@ func addInventoryButton(self:SKScene, pos:CGPoint, diameter: CGFloat){
 
 //PRESENT INVENTORY SCENE
 func goToInventory(self:SKScene){
+    
+    playSound(soundPlayer: SPKey.buttonClick)
+    
     inventoryButton.texture = SKTexture(imageNamed: "inventoryButton")
     let temp = InventoryScene(fileNamed: "InventoryScene")
-    self.scene?.view?.presentScene(temp!, transition: SKTransition.fade(withDuration: 1))
+    self.scene?.view?.presentScene(temp!, transition: SKTransition.fade(withDuration: 0.8))
     
 }
 
@@ -57,10 +60,7 @@ func addInvNodes(self:SKScene){
     self.addChild(leftInventoryArrow)
     
     //EQUIP AND MODEL NODE
-    equipButton = SKSpriteNode(color: .orange, size: CGSize(width: screenHeight/10, height: screenHeight/25))
-    equipButton.texture = SKTexture(imageNamed: "equipButton")
-    equipButton.position = CGPoint(x:0, y: -screenHeight/8 + yCoord)
-    //equipButton.position = CGPoint(x:0, y: -screenHeight/6 + yCoord)
+    addEquipButton(self: self, pos: CGPoint(x: 0, y: -screenHeight/8 + yCoord), size: CGSize(width: screenHeight/10, height: screenHeight/25))
     setEquipButtonAsEquipped()
     
     makeModelNode(pos: CGPoint(x:inventoryNodeX, y:yCoord), node: &skinModelNode)
@@ -68,16 +68,26 @@ func addInvNodes(self:SKScene){
     
     makeModelNode(pos: CGPoint(x: inventoryNodeX + screenHeight/3, y:yCoord), node: &skinModelNode2)
     
-    self.addChild(equipButton)
+    
     self.addChild(skinModelNode)
     self.addChild(skinModelNode2)
 
 }
 
+func addEquipButton(self:SKScene, pos:CGPoint, size:CGSize){
+    equipButton = SKSpriteNode(color: .orange, size: size)
+    equipButton.texture = SKTexture(imageNamed: "equipButton")
+    equipButton.position = pos
+    
+    self.addChild(equipButton)
+    
+}
+
 
 //EQUIPPED BUTTON CLICKED
 func equipButtonClicked(){
-    //equipButton.texture = SKTexture(imageNamed: "equippedButton")
+    playSound(soundPlayer: SPKey.equippedButtonClick)
+    
     setEquipButtonAsEquipped()
     
     let invList = userDefaults.value(forKey: UDKey.inventory) as! [String]
@@ -124,10 +134,10 @@ func rightArrowClicked(self: SKScene){
     if skinModelNode.position.x == inventoryNodeX {
         print(invList)
         skinModelNode2.texture = skinDictionary[invList[currentSkinInd]]!.faceDown
-        rotatePresentedSkin(self: self, nodeA: &skinModelNode, nodeB: &skinModelNode2, rightClicked: true)
+        rotatePresentedSkin(self: self, nodeA: &skinModelNode, nodeB: &skinModelNode2, rightClicked: true, curObj: skinDictionary[invList[currentSkinInd]]!)
     }else{
         skinModelNode.texture = skinDictionary[invList[currentSkinInd]]!.faceDown
-        rotatePresentedSkin(self: self, nodeA: &skinModelNode2, nodeB: &skinModelNode, rightClicked: true)
+        rotatePresentedSkin(self: self, nodeA: &skinModelNode2, nodeB: &skinModelNode, rightClicked: true, curObj: skinDictionary[invList[currentSkinInd]]!)
     }
 }
 
@@ -145,15 +155,17 @@ func leftArrowClicked(self:SKScene){
     
     if skinModelNode.position.x == inventoryNodeX{
         skinModelNode2.texture = skinDictionary[invList[currentSkinInd]]!.faceDown
-        rotatePresentedSkin(self: self, nodeA: &skinModelNode, nodeB: &skinModelNode2, rightClicked: false)
+        rotatePresentedSkin(self: self, nodeA: &skinModelNode, nodeB: &skinModelNode2, rightClicked: false, curObj: skinDictionary[invList[currentSkinInd]]!)
     }else{
         skinModelNode.texture = skinDictionary[invList[currentSkinInd]]!.faceDown
-        rotatePresentedSkin(self: self, nodeA: &skinModelNode2, nodeB: &skinModelNode, rightClicked: false)
+        rotatePresentedSkin(self: self, nodeA: &skinModelNode2, nodeB: &skinModelNode, rightClicked: false, curObj: skinDictionary[invList[currentSkinInd]]!)
     }
 }
 
 //ANIMATION
-func rotatePresentedSkin(self: SKScene, nodeA: inout SKSpriteNode, nodeB: inout SKSpriteNode, rightClicked: Bool){
+func rotatePresentedSkin(self: SKScene, nodeA: inout SKSpriteNode, nodeB: inout SKSpriteNode, rightClicked: Bool, curObj: ObjectSkin){
+    
+    
     //check if next is equipped
     let invList = userDefaults.value(forKey: UDKey.inventory) as! [String]
     arrowAnimationOn = true
@@ -175,10 +187,23 @@ func rotatePresentedSkin(self: SKScene, nodeA: inout SKSpriteNode, nodeB: inout 
         }
     }
     
+    //change backg color
+    let changeBackground = SKAction.run{
+        if curObj.rarity == rarityKey.epic{
+            self.backgroundColor = curObj.background
+            changePlayAreaBackgroundColor(c: curObj.background)
+        }else{
+            self.backgroundColor = inventoryBackgroundColor
+            changePlayAreaBackgroundColor(c: inventoryBackgroundColor)
+        }
+    }
+    
+    
+    //run
     move1.timingMode = .easeOut
     move2.timingMode = .easeOut
     
-    nodeA.run(SKAction.sequence([move2, turnOff]))
+    nodeA.run(SKAction.sequence([move2, changeBackground, turnOff]))
     nodeB.run(move1)
 }
 

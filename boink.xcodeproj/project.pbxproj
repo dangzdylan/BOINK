@@ -25,12 +25,14 @@
 		FC274267273897F600BE46B6 /* BluenightRegular.otf in Resources */ = {isa = PBXBuildFile; fileRef = FC274264273897F600BE46B6 /* BluenightRegular.otf */; };
 		FC274268273897F600BE46B6 /* info.txt in Resources */ = {isa = PBXBuildFile; fileRef = FC274265273897F600BE46B6 /* info.txt */; };
 		FC274269273897F600BE46B6 /* BluenightRegular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = FC274266273897F600BE46B6 /* BluenightRegular.ttf */; };
+		FC274E0C2870D551008FEFE1 /* chaching.wav in Resources */ = {isa = PBXBuildFile; fileRef = FC274E0B2870D551008FEFE1 /* chaching.wav */; };
+		FC294D452875679500EAA373 /* mysteryPackageBreak.wav in Resources */ = {isa = PBXBuildFile; fileRef = FC294D442875679500EAA373 /* mysteryPackageBreak.wav */; };
+		FC294D472875691E00EAA373 /* mysteryBoxDispense.wav in Resources */ = {isa = PBXBuildFile; fileRef = FC294D462875691E00EAA373 /* mysteryBoxDispense.wav */; };
 		FC2DED5E286EB6FA00AC5F6A /* skinRevealScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC2DED5D286EB6FA00AC5F6A /* skinRevealScene.swift */; };
 		FC2DED60286EB9F000AC5F6A /* SkinRevealScene.sks in Resources */ = {isa = PBXBuildFile; fileRef = FC2DED5F286EB9F000AC5F6A /* SkinRevealScene.sks */; };
 		FC3686AE27A918A1007CF7E5 /* version.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC3686AD27A918A1007CF7E5 /* version.swift */; };
 		FC5AB61F270D68E1009535D5 /* scoring.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC1DE3F626DC8CB400BD359E /* scoring.swift */; };
 		FC63C32A26ED691300738FB2 /* checklist.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC63C32926ED691300738FB2 /* checklist.swift */; };
-		FC698537286A7C9100FEAC95 /* mysteryBoxShake.wav in Resources */ = {isa = PBXBuildFile; fileRef = FC698536286A7C9100FEAC95 /* mysteryBoxShake.wav */; };
 		FC6C5AFF27C8B55B0078DBDC /* inventoryVars.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC6C5AFE27C8B55B0078DBDC /* inventoryVars.swift */; };
 		FC6C5B0127C8CB790078DBDC /* SKINS.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC6C5B0027C8CB790078DBDC /* SKINS.swift */; };
 		FC83E577277147C900748FB4 /* launchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FC83E576277147C900748FB4 /* launchScreen.storyboard */; };
@@ -48,9 +50,16 @@
 		FCBEB24926D0A46F000E1FD0 /* boinkUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCBEB24826D0A46F000E1FD0 /* boinkUITests.swift */; };
 		FCC5EC9327265F6500EA990A /* color.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCC5EC9227265F6500EA990A /* color.swift */; };
 		FCCB855B26F7BE550068ECB8 /* levels.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCCB855A26F7BE550068ECB8 /* levels.swift */; };
+		FCCFE72D2884E61E007D3D16 /* buttonClick.wav in Resources */ = {isa = PBXBuildFile; fileRef = FCCFE72C2884E61E007D3D16 /* buttonClick.wav */; };
+		FCCFE72F2884E767007D3D16 /* equippedButtonClick.wav in Resources */ = {isa = PBXBuildFile; fileRef = FCCFE72E2884E767007D3D16 /* equippedButtonClick.wav */; };
+		FCCFE7332884EB8D007D3D16 /* revealSkinMusic3.wav in Resources */ = {isa = PBXBuildFile; fileRef = FCCFE7322884EB8D007D3D16 /* revealSkinMusic3.wav */; };
+		FCCFE7352884EBC2007D3D16 /* revealSkinMusic2.wav in Resources */ = {isa = PBXBuildFile; fileRef = FCCFE7342884EBC2007D3D16 /* revealSkinMusic2.wav */; };
+		FCCFE7372884EC44007D3D16 /* revealSkinMusic.wav in Resources */ = {isa = PBXBuildFile; fileRef = FCCFE7362884EC44007D3D16 /* revealSkinMusic.wav */; };
+		FCCFE7392884EFAB007D3D16 /* epicRevealSkinMusic.wav in Resources */ = {isa = PBXBuildFile; fileRef = FCCFE7382884EFAB007D3D16 /* epicRevealSkinMusic.wav */; };
 		FCD0E5C9275C0E4F006C6A48 /* menuSlide.wav in Resources */ = {isa = PBXBuildFile; fileRef = FCD0E5C8275C0E4F006C6A48 /* menuSlide.wav */; };
 		FCD40199278176CB0013CD13 /* GameKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FCD40198278176CB0013CD13 /* GameKit.framework */; };
 		FCD64292275C975800C505C3 /* titleStomp.wav in Resources */ = {isa = PBXBuildFile; fileRef = FCD64291275C975800C505C3 /* titleStomp.wav */; };
+		FCD7B8E028722D7500129444 /* mysteryBoxShaking.wav in Resources */ = {isa = PBXBuildFile; fileRef = FCD7B8DF28722D7500129444 /* mysteryBoxShaking.wav */; };
 		FCDBEDC427C1B94800B4977D /* classes.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCDBEDC327C1B94800B4977D /* classes.swift */; };
 		FCDBEDC627C1BF3E00B4977D /* shopFuncs.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCDBEDC527C1BF3E00B4977D /* shopFuncs.swift */; };
 		FCDBEDC827C1BFFA00B4977D /* shopVars.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCDBEDC727C1BFFA00B4977D /* shopVars.swift */; };
@@ -98,11 +107,13 @@
 		FC274264273897F600BE46B6 /* BluenightRegular.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = BluenightRegular.otf; sourceTree = "<group>"; };
 		FC274265273897F600BE46B6 /* info.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = info.txt; sourceTree = "<group>"; };
 		FC274266273897F600BE46B6 /* BluenightRegular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = BluenightRegular.ttf; sourceTree = "<group>"; };
+		FC274E0B2870D551008FEFE1 /* chaching.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = chaching.wav; sourceTree = "<group>"; };
+		FC294D442875679500EAA373 /* mysteryPackageBreak.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = mysteryPackageBreak.wav; sourceTree = "<group>"; };
+		FC294D462875691E00EAA373 /* mysteryBoxDispense.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = mysteryBoxDispense.wav; sourceTree = "<group>"; };
 		FC2DED5D286EB6FA00AC5F6A /* skinRevealScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = skinRevealScene.swift; sourceTree = "<group>"; };
 		FC2DED5F286EB9F000AC5F6A /* SkinRevealScene.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = SkinRevealScene.sks; sourceTree = "<group>"; };
 		FC3686AD27A918A1007CF7E5 /* version.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = version.swift; sourceTree = "<group>"; };
 		FC63C32926ED691300738FB2 /* checklist.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = checklist.swift; sourceTree = "<group>"; };
-		FC698536286A7C9100FEAC95 /* mysteryBoxShake.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = mysteryBoxShake.wav; sourceTree = "<group>"; };
 		FC6C5AFE27C8B55B0078DBDC /* inventoryVars.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = inventoryVars.swift; sourceTree = "<group>"; };
 		FC6C5B0027C8CB790078DBDC /* SKINS.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SKINS.swift; sourceTree = "<group>"; };
 		FC83E576277147C900748FB4 /* launchScreen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = launchScreen.storyboard; sourceTree = "<group>"; };
@@ -126,9 +137,16 @@
 		FCBEB24A26D0A46F000E1FD0 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		FCC5EC9227265F6500EA990A /* color.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = color.swift; sourceTree = "<group>"; };
 		FCCB855A26F7BE550068ECB8 /* levels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = levels.swift; sourceTree = "<group>"; };
+		FCCFE72C2884E61E007D3D16 /* buttonClick.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = buttonClick.wav; sourceTree = "<group>"; };
+		FCCFE72E2884E767007D3D16 /* equippedButtonClick.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = equippedButtonClick.wav; sourceTree = "<group>"; };
+		FCCFE7322884EB8D007D3D16 /* revealSkinMusic3.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = revealSkinMusic3.wav; sourceTree = "<group>"; };
+		FCCFE7342884EBC2007D3D16 /* revealSkinMusic2.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = revealSkinMusic2.wav; sourceTree = "<group>"; };
+		FCCFE7362884EC44007D3D16 /* revealSkinMusic.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = revealSkinMusic.wav; sourceTree = "<group>"; };
+		FCCFE7382884EFAB007D3D16 /* epicRevealSkinMusic.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = epicRevealSkinMusic.wav; sourceTree = "<group>"; };
 		FCD0E5C8275C0E4F006C6A48 /* menuSlide.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = menuSlide.wav; sourceTree = "<group>"; };
 		FCD40198278176CB0013CD13 /* GameKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GameKit.framework; path = System/Library/Frameworks/GameKit.framework; sourceTree = SDKROOT; };
 		FCD64291275C975800C505C3 /* titleStomp.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = titleStomp.wav; sourceTree = "<group>"; };
+		FCD7B8DF28722D7500129444 /* mysteryBoxShaking.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = mysteryBoxShaking.wav; sourceTree = "<group>"; };
 		FCDBEDC327C1B94800B4977D /* classes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = classes.swift; sourceTree = "<group>"; };
 		FCDBEDC527C1BF3E00B4977D /* shopFuncs.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = shopFuncs.swift; sourceTree = "<group>"; };
 		FCDBEDC727C1BFFA00B4977D /* shopVars.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = shopVars.swift; sourceTree = "<group>"; };
@@ -168,12 +186,21 @@
 		FC0E00DC26D34737000C3987 /* sound effects */ = {
 			isa = PBXGroup;
 			children = (
-				FC698536286A7C9100FEAC95 /* mysteryBoxShake.wav */,
+				FCCFE7382884EFAB007D3D16 /* epicRevealSkinMusic.wav */,
+				FCCFE7362884EC44007D3D16 /* revealSkinMusic.wav */,
+				FCCFE7342884EBC2007D3D16 /* revealSkinMusic2.wav */,
+				FCCFE7322884EB8D007D3D16 /* revealSkinMusic3.wav */,
+				FCCFE72E2884E767007D3D16 /* equippedButtonClick.wav */,
+				FCCFE72C2884E61E007D3D16 /* buttonClick.wav */,
+				FC294D462875691E00EAA373 /* mysteryBoxDispense.wav */,
+				FCD7B8DF28722D7500129444 /* mysteryBoxShaking.wav */,
+				FC274E0B2870D551008FEFE1 /* chaching.wav */,
 				FC1A46F8275DEA03008D625A /* monsterDispense.wav */,
 				FCD64291275C975800C505C3 /* titleStomp.wav */,
 				FCD0E5C8275C0E4F006C6A48 /* menuSlide.wav */,
 				FC074A88274F133D00B95747 /* gameOver.wav */,
 				FC074A86274F0F7700B95747 /* collectCoin.wav */,
+				FC294D442875679500EAA373 /* mysteryPackageBreak.wav */,
 			);
 			path = "sound effects";
 			sourceTree = "<group>";
@@ -236,7 +263,6 @@
 				FCAF25F526E5924900DD8766 /* gameStateVars.swift */,
 				FC1DE3C626DC8C5D00BD359E /* nodeVars.swift */,
 				FC6C5B0027C8CB790078DBDC /* SKINS.swift */,
-				FC3686AD27A918A1007CF7E5 /* version.swift */,
 				FC0E00F026D3788F000C3987 /* textures.swift */,
 				FC1B61C2278FF5020033A741 /* gameCenter.swift */,
 				FCDBEDC327C1B94800B4977D /* classes.swift */,
@@ -261,6 +287,7 @@
 				FC1DE3EB26DC8C9F00BD359E /* Player.swift */,
 				FC1DE3F626DC8CB400BD359E /* scoring.swift */,
 				FCAF25ED26E58FD900DD8766 /* sounds.swift */,
+				FC3686AD27A918A1007CF7E5 /* version.swift */,
 				FCBEB22D26D0A46F000E1FD0 /* GameViewController.swift */,
 				FCBEB22526D0A46F000E1FD0 /* AppDelegate.swift */,
 				FC83E57927714B7800748FB4 /* Main.storyboard */,
@@ -404,9 +431,12 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FCCFE72D2884E61E007D3D16 /* buttonClick.wav in Resources */,
+				FCCFE72F2884E767007D3D16 /* equippedButtonClick.wav in Resources */,
 				FC274267273897F600BE46B6 /* BluenightRegular.otf in Resources */,
 				FC00130127C37929006106D5 /* CrateOpeningScene.sks in Resources */,
 				FC2DED60286EB9F000AC5F6A /* SkinRevealScene.sks in Resources */,
+				FCCFE7372884EC44007D3D16 /* revealSkinMusic.wav in Resources */,
 				FC274269273897F600BE46B6 /* BluenightRegular.ttf in Resources */,
 				FC074A89274F133D00B95747 /* gameOver.wav in Resources */,
 				FCBEB22826D0A46F000E1FD0 /* GameScene.sks in Resources */,
@@ -414,14 +444,20 @@
 				FC83E577277147C900748FB4 /* launchScreen.storyboard in Resources */,
 				FC1A46F9275DEA03008D625A /* monsterDispense.wav in Resources */,
 				FC83E57B27714B7800748FB4 /* Main.storyboard in Resources */,
+				FCCFE7332884EB8D007D3D16 /* revealSkinMusic3.wav in Resources */,
 				FCDBEDCC27C2078300B4977D /* ShopScene.sks in Resources */,
+				FCCFE7352884EBC2007D3D16 /* revealSkinMusic2.wav in Resources */,
 				FCBEB23326D0A46F000E1FD0 /* Assets.xcassets in Resources */,
+				FC294D472875691E00EAA373 /* mysteryBoxDispense.wav in Resources */,
 				FCD64292275C975800C505C3 /* titleStomp.wav in Resources */,
+				FCD7B8E028722D7500129444 /* mysteryBoxShaking.wav in Resources */,
+				FC274E0C2870D551008FEFE1 /* chaching.wav in Resources */,
 				FC074A87274F0F7700B95747 /* collectCoin.wav in Resources */,
-				FC698537286A7C9100FEAC95 /* mysteryBoxShake.wav in Resources */,
 				FCDBEDD227C209A700B4977D /* InventoryScene.sks in Resources */,
 				FC274268273897F600BE46B6 /* info.txt in Resources */,
 				FCBEB22A26D0A46F000E1FD0 /* Actions.sks in Resources */,
+				FC294D452875679500EAA373 /* mysteryPackageBreak.wav in Resources */,
+				FCCFE7392884EFAB007D3D16 /* epicRevealSkinMusic.wav in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

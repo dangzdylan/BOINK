@@ -16,9 +16,7 @@ class GameViewController: UIViewController{ //, GKGameCenterControllerDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        //authPlayer()
         let scene = GameScene(fileNamed: "GameScene")!
-        //print(view.bounds.size, screenWidth, screenHeight)
         let skView = view as! SKView
         
         skView.showsFPS = false
@@ -29,6 +27,8 @@ class GameViewController: UIViewController{ //, GKGameCenterControllerDelegate {
         skView.showsPhysics = false
         
         scene.scaleMode = .resizeFill
+        
+        checkIfUpdateIsAvailable(self: self)
         skView.presentScene(scene)
         
         authenticateUser()

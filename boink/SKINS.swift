@@ -34,19 +34,27 @@ func equipSkinAtStart(){
 public let skinDictionary = [
     //default
     
-    "0" : ObjectSkin(name: "Default", textures: skinPackage(name: "default"), rarity: rarityKey.def, skinType: typeKey.player),
+    "0" : ObjectSkin(name: "Default", textures: skinPackage(name: "default"), rarity: rarityKey.def, skinType: typeKey.player, background: backColor.common),
     //common
     
     
-    "1" : ObjectSkin(name: "NINJA", textures: skinPackage(name: "blueNinja"), rarity: rarityKey.common, skinType: typeKey.player),
-    "2": ObjectSkin(name: "FROST", textures: skinPackage(name: "frost"), rarity: rarityKey.common, skinType: typeKey.player),
-    "3" : ObjectSkin(name: "PINKY", textures: skinPackage(name: "pinky"), rarity: rarityKey.common, skinType: typeKey.player),
-    "4" : ObjectSkin(name: "ALIEN", textures: skinPackage(name: "greenAlien"), rarity: rarityKey.common, skinType: typeKey.player),
-    "5" : ObjectSkin(name: "APPA", textures: skinPackage(name: "appa"), rarity: rarityKey.common, skinType: typeKey.player),
-    "6" : ObjectSkin(name: "TIGER", textures: skinPackage(name: "tiger"), rarity: rarityKey.common, skinType: typeKey.player),
+    "1" : ObjectSkin(name: "NINJA", textures: skinPackage(name: "blueNinja"), rarity: rarityKey.common, skinType: typeKey.player, background: backColor.common),
+    "2": ObjectSkin(name: "FROST", textures: skinPackage(name: "frost"), rarity: rarityKey.common, skinType: typeKey.player, background: backColor.common),
+    "3" : ObjectSkin(name: "PINKY", textures: skinPackage(name: "pinky"), rarity: rarityKey.common, skinType: typeKey.player, background: backColor.common),
+    "4" : ObjectSkin(name: "ALIEN", textures: skinPackage(name: "greenAlien"), rarity: rarityKey.common, skinType: typeKey.player, background: backColor.common),
+    "5" : ObjectSkin(name: "BISON", textures: skinPackage(name: "appa"), rarity: rarityKey.common, skinType: typeKey.player, background: backColor.common),
+    "6" : ObjectSkin(name: "TIGER", textures: skinPackage(name: "tiger"), rarity: rarityKey.common, skinType: typeKey.player, background: backColor.common),
+    "7" : ObjectSkin(name: "MELON", textures: skinPackage(name: "watermelon"), rarity: rarityKey.common, skinType: typeKey.player, background: backColor.common),
+    "8" : ObjectSkin(name: "BLU", textures: skinPackage(name: "blueberry"), rarity: rarityKey.common, skinType: typeKey.player, background: backColor.common),
+    "9" : ObjectSkin(name: "MONKEY", textures: skinPackage(name: "brownMonkey"), rarity: rarityKey.common, skinType: typeKey.player, background: backColor.common),
+    "10" : ObjectSkin(name: "CYCLER", textures: skinPackage(name: "motorcycler"), rarity: rarityKey.common, skinType: typeKey.player, background: backColor.common),
+    "11" : ObjectSkin(name: "PURP", textures: skinPackage(name: "purple"), rarity: rarityKey.common, skinType: typeKey.player, background: backColor.common),
+    "12" : ObjectSkin(name: "DARK", textures: skinPackage(name: "darkDefault"), rarity: rarityKey.common, skinType: typeKey.player, background: backColor.common),
+    
     //rare
     
     //epic
+    "101" : ObjectSkin(name: "GOLD", textures: skinPackage(name: "goldenDefault"), rarity: rarityKey.epic, skinType: typeKey.player, background: backColor.goldenDefault),
 /*
     "11" : ObjectSkin(name: "epic1", textures: monsterSpawningTextures, rarity: rarityKey.epic, skinType: typeKey.player),
     "12" : ObjectSkin(name: "epic2", textures: monsterSpawningTextures, rarity: rarityKey.epic, skinType: typeKey.player),
@@ -58,8 +66,8 @@ public let skinDictionary = [
 ]
 
 public struct Skins{
-    static let common = keysToStringArray(dKeys: skinDictionary.keys)
-    static let epic:[String] = ["11","12","13"]
+    static let common = comKeysToStringArray(dKeys: skinDictionary.keys)
+    static let epic:[String] = ["101"]
 }
 
 public struct rarityKey{
@@ -84,10 +92,10 @@ func skinPackage(name: String) -> [SKTexture]{
 
 
 //dict keys to string arr
-func keysToStringArray(dKeys: Dictionary<String, ObjectSkin>.Keys) -> [String]{
+func comKeysToStringArray(dKeys: Dictionary<String, ObjectSkin>.Keys) -> [String]{
     var a:[String] = []
     for k in dKeys{
-        if (k != "0"){
+        if (skinDictionary[k]!.rarity == rarityKey.common){
             a.append(k)
         }
     }
@@ -96,7 +104,3 @@ func keysToStringArray(dKeys: Dictionary<String, ObjectSkin>.Keys) -> [String]{
 
 
 
-//radians to deg
-func deg(d:Int)-> CGFloat{
-    return CGFloat(Double(d * 180) / M_PI)
-}

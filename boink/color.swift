@@ -31,6 +31,20 @@ public let backgroundColorWays:[Int: [String]] = [1 : ["FFFFFF", "CDCACC"],
 public var textBorderColor = color(hex: "FFFFFF")
 
 
+
+public struct backColor{
+    static let common = shopBackgroundColor
+    static let goldenDefault = color(hex: "FDE17B")
+}
+
+
+
+
+
+
+
+
+
 func color(hex:String) -> UIColor{
     
     //r,g,b

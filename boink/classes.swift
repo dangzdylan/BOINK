@@ -22,9 +22,10 @@ public class ObjectSkin : NSObject{
     var rarity: Int
     var skinType: Int
     var skinName: String
+    var background: UIColor
     
     //FOR textures: 0th face down, 1 TR, 2TL, 3BL, 4BR like quadrants
-    init(name: String, textures: [SKTexture], rarity: Int, skinType: Int){
+    init(name: String, textures: [SKTexture], rarity: Int, skinType: Int, background: UIColor){
         
         self.skinName = name
         
@@ -36,6 +37,7 @@ public class ObjectSkin : NSObject{
         
         self.rarity = rarity
         self.skinType = skinType
+        self.background = background
         
         
         

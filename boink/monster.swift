@@ -244,73 +244,9 @@ func addSpawner(self:SKScene){
     self.addChild(spawner2)
     self.addChild(spawner3)
     self.addChild(spawner4)
-}
-
-
-func monsterSpeedUpAnimation(){
-    
-    //determine actions
-    //print("before", monsterSpeed)
-    
-    
-    //player
-    Player.physicsBody?.velocity = CGVector(dx:0, dy:0)
-    stopPlayerTextureMove = true
-    var playerSpeedMultipliers:[CGFloat] = [1,1]
-    if Player.texture?.description == playerTopLeft.description{
-        playerSpeedMultipliers[0] *= -1
-    }else if Player.texture?.description == playerBottomLeft.description{
-        playerSpeedMultipliers[0] *= -1
-        playerSpeedMultipliers[1] *= -1
-    }else if Player.texture?.description == playerBottomRight.description{
-        playerSpeedMultipliers[1] *= -1
-    }
-    
-    //monsters
-    for monster in monsterArray{
-        var action1 = SKAction()
-        var action2 = SKAction()
-        
-        var monsterSpeedMultipliers:[CGFloat] = [1,1]
-        if isInMonsterTextureArray(monsterDesc: monster.texture!.description, textureArray: monsterTextures_TR){
-            action1 = monsterSpeedUpAnimation_TR
-            action2 = monsterAnimation_TR
-        }else if isInMonsterTextureArray(monsterDesc: monster.texture!.description, textureArray: monsterTextures_TL){
-            monsterSpeedMultipliers[0] *= -1
-            action1 = monsterSpeedUpAnimation_TL
-            action2 = monsterAnimation_TL
-        }else if isInMonsterTextureArray(monsterDesc: monster.texture!.description, textureArray: monsterTextures_BL){
-            monsterSpeedMultipliers[0] *= -1
-            monsterSpeedMultipliers[1] *= -1
-            action1 = monsterSpeedUpAnimation_BL
-            action2 = monsterAnimation_BL
-        }else if isInMonsterTextureArray(monsterDesc: monster.texture!.description, textureArray: monsterTextures_BR){
-            monsterSpeedMultipliers[1] *= -1
-            action1 = monsterSpeedUpAnimation_BR
-            action2 = monsterAnimation_BR
-        }
-        
-        
-        
-    
-        monster.removeAllActions()
-        monster.physicsBody?.velocity = CGVector(dx: 0, dy: 0)
-        action2 = SKAction.repeatForever(action2)
-        Timer.scheduledTimer(withTimeInterval: action1.duration + action2.duration + 0.1, repeats: false){timer in
-            //print("after", monsterSpeed)
-            monster.physicsBody?.applyImpulse(CGVector(dx: monsterSpeed * monsterSpeedMultipliers[0], dy: monsterSpeed * monsterSpeedMultipliers[1]))
-            Player.physicsBody?.applyImpulse(CGVector(dx:playerSpeed * playerSpeedMultipliers[0], dy: playerSpeed * playerSpeedMultipliers[1]))
-            stopPlayerTextureMove = false
-        }
-        
-        
-        let finalaction = SKAction.sequence([action1, action2])
-        monster.run(finalaction)
-
-        
-    }
-    
-    
     
 }
+
+
+
 

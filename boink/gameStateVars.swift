@@ -74,6 +74,12 @@ public struct SPKey{
     static var monsterDispenseSoundPlayer: AVAudioPlayer?
     static var mysteryBoxShakeSoundPlayer: AVAudioPlayer?
     static var mysteryBoxDispenseSoundPlayer: AVAudioPlayer?
+    static var chaching: AVAudioPlayer?
+    static var mysteryPackageBreak: AVAudioPlayer?
+    static var revealSkinMusic: AVAudioPlayer?
+    static var epicRevealSkinMusic: AVAudioPlayer?
+    static var buttonClick: AVAudioPlayer?
+    static var equippedButtonClick: AVAudioPlayer?
 }
 
 
@@ -108,6 +114,7 @@ public struct clicked{
     static var inventoryButton = false
     static var shopButton = false
     static var buyButton = false
+    static var equipButton = false
 }
 
 func resetClickedButtons(){
@@ -118,6 +125,5 @@ func resetClickedButtons(){
     clicked.inventoryButton = false
     clicked.shopButton = false
     clicked.buyButton = false
+    clicked.equipButton = false
 }
-
-

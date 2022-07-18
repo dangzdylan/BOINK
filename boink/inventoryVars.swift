@@ -30,6 +30,9 @@ public var currentSkinInd = 0
 public var resetButton = SKSpriteNode()
 
 
+public let inventoryBackgroundColor:UIColor = color(hex: "BEB8F6")
+
+
 
 
 

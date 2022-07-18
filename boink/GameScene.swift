@@ -38,6 +38,9 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         determineRank(self:self)
         
         
+        
+        
+        
 
     }
     
@@ -118,14 +121,17 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
                     
                 //leaderboards
                 } else if leaderboardButton.contains(location) && clicked.leaderboardButton{
+                    
+                    playSound(soundPlayer: SPKey.buttonClick)
                     showLeaderboards(self: gvc)
+                    
                 
                 }else{
                     resetButtonTextures()
                 }
                 resetClickedButtons()
             //replay button
-            }else if gameHasEnded && playAgain.contains(location){
+            }else if gameHasEnded && playAgain.contains(location) && !menuAnimationActive{
                 replayButtonClicked(self: self)
             }else{
                 resetButtonTextures()

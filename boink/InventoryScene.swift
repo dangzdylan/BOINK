@@ -16,12 +16,27 @@ import UIKit
 class InventoryScene: SKScene{
     
     override func didMove(to view: SKView) {
-        addBackToGameButton(self: self, pos: CGPoint(x: 0, y: -self.frame.height/2 + screenHeight/16), diameter: screenHeight / 25)
+        addBackToGameButton(self: self, pos: CGPoint(x: 0, y: -self.frame.height/2 + screenHeight/14), diameter: screenHeight / 22)
         addInvNodes(self: self)
         getIndexOfEquippedSkin()
         //addResetButton(self: self)
         addInventoryBackground(self: self)
-        //print(userDefaults.value(forKey: UDKey.inventory)!)
+        
+        
+        //background
+        self.backgroundColor = inventoryBackgroundColor
+        addColoredPlayAreaBackgroundObjs(self: self, color: inventoryBackgroundColor)
+        
+        if skinDictionary[userDefaults.value(forKey: UDKey.equippedSkin) as! String]!.rarity == rarityKey.epic{
+            let c = skinDictionary[userDefaults.value(forKey: UDKey.equippedSkin) as! String]!.background
+            self.backgroundColor = c
+            addColoredPlayAreaBackgroundObjs(self: self, color: c)
+        }
+
+        
+        
+        //
+        
     }
     
     
@@ -47,7 +62,7 @@ class InventoryScene: SKScene{
                     
                 //equip button
                 }else if equipButton.contains(location){
-                    equipButtonClicked()
+                    clicked.equipButton = true
                 }
             }
             
@@ -77,6 +92,9 @@ class InventoryScene: SKScene{
             //left arrow button
             }else if leftInventoryArrow.contains(location) && clicked.invLeftArrow{
                 leftArrowClicked(self: self)
+                
+            }else if equipButton.contains(location) && clicked.equipButton{
+                equipButtonClicked()
                 
             }else{
                 resetButtonTextures()

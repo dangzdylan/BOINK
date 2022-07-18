@@ -24,9 +24,11 @@ func addShopButton(self:SKScene){
 
 
 func goToShop(self:SKScene){
+    playSound(soundPlayer: SPKey.buttonClick)
+    
     shopButton.texture = SKTexture(imageNamed: "shopButtonIcon")
     let temp = ShopScene(fileNamed: "ShopScene")
-    self.scene?.view?.presentScene(temp!, transition: SKTransition.fade(withDuration: 1))
+    self.scene?.view?.presentScene(temp!, transition: SKTransition.fade(withDuration: 0.8))
 }
 
 
@@ -41,9 +43,11 @@ func addBackToGameButton(self:SKScene, pos: CGPoint, diameter: CGFloat){
 }
 
 func goBackToGameScene(self:SKScene){
+    playSound(soundPlayer: SPKey.buttonClick)
+    
     backToGameButton.texture = SKTexture(imageNamed: "backButton")
     let temp = GameScene(fileNamed: "GameScene")
-    self.scene?.view?.presentScene(temp!, transition: SKTransition.fade(withDuration: 1))
+    self.scene?.view?.presentScene(temp!, transition: SKTransition.fade(withDuration: 0.8))
 }
 
 
@@ -60,10 +64,12 @@ func attemptPurchase(self: SKScene){
     }else{
         userDefaults.setValue(purse - mysterySkinPrice, forKey: UDKey.coinPurse)
         displayedCoinPurse.text = String(purse - mysterySkinPrice)
+        chooseRandomSkin(self: self)
         //go to opening scene
         let temp = CrateOpeningScene(fileNamed: "CrateOpeningScene")
-        self.scene?.view?.presentScene(temp!, transition: SKTransition.fade(withDuration: 0.3))
+        self.scene?.view?.presentScene(temp!, transition: SKTransition.fade(withDuration: 0.01))
     }
+    
     //print(userDefaults.object(forKey: UDKey.commonRemainingSkins) as! [String])
 }
 
@@ -92,19 +98,29 @@ func unsuccessfulPurchase(self: SKScene){
 func addBuyButton(self:SKScene){
     
     buyButton = SKSpriteNode(color: .white, size: CGSize(width: screenHeight/8, height:screenHeight/18))
-    buyButton.position = CGPoint(x:0, y: backToGameButton.position.y + screenHeight/12)
+    buyButton.position = CGPoint(x:0, y: backToGameButton.position.y + screenHeight/16)
     buyButton.texture = SKTexture(imageNamed: "buyButton")
     self.addChild(buyButton)
+    
+    
+    let boxCostLabel = SKSpriteNode(color: .white, size: CGSize(width: screenHeight/8, height:screenHeight/32))
+    boxCostLabel.position = CGPoint(x:0, y: buyButton.position.y + boxCostLabel.size.height + screenHeight/50)
+    boxCostLabel.zPosition = buyButton.zPosition + 1
+    boxCostLabel.texture = SKTexture(imageNamed: "boxCostLabel")
+    self.addChild(boxCostLabel)
+    
+    
+    
 }
 
 func addCrateImage(self:SKScene){
-    crateImage = SKSpriteNode(color: .purple, size: CGSize(width: screenHeight/6, height: screenHeight/6))
-    crateImage.position = CGPoint(x:0, y:screenHeight/15)
+    crateImage = SKSpriteNode(color: .purple, size: CGSize(width: screenHeight/6, height: screenHeight/4))
+    crateImage.position = CGPoint(x:0, y:screenHeight/20)
     crateImage.zPosition = crateImageZPosition
     crateImage.texture = SKTexture(imageNamed: "mysteryBox")
     
     
-    crateImage2 = SKSpriteNode(color: .green, size: CGSize(width: screenHeight/10, height: screenHeight/10))
+    crateImage2 = SKSpriteNode(color: .green, size: crateImage.size)
     crateImage2.position = crateImage.position
     crateImage2.zPosition = crateImageZPosition + 2
     crateImage2.texture = SKTexture(imageNamed: "mysteryBox2")
@@ -124,7 +140,7 @@ func addCoinPurseText(self:SKScene){
     let coinPurse:Int = userDefaults.value(forKey: UDKey.coinPurse) as! Int
     displayedCoinPurse = SKLabelNode(text: String(coinPurse))
     displayedCoinPurse.fontSize = screenHeight / 50
-    displayedCoinPurse.fontColor = .white
+    displayedCoinPurse.fontColor = .black
     displayedCoinPurse.fontName = currentFont
     displayedCoinPurse.horizontalAlignmentMode = .left
     
@@ -146,10 +162,10 @@ func addCoinPurseText(self:SKScene){
 //MORECOMINGSOON
 
 func checkAvailableSkins(self:SKScene){
-    if (userDefaults.object(forKey: UDKey.commonRemainingSkins) == nil) { // ADD WHEN EPIC SKINS:      && userDefaults.object(forKey: UDKey.epicRemainingSkins) == nil){
+    if userDefaults.object(forKey: UDKey.commonRemainingSkins) == nil && userDefaults.object(forKey: UDKey.epicRemainingSkins) == nil {
         attemptPurchase(self: self)
     }
-    else if (userDefaults.object(forKey: UDKey.commonRemainingSkins) as! [String] == []){ // ADD WHEN EPIC SKINS:   && (userDefaults.object(forKey: UDKey.epicRemainingSkins) as! [String] == []){
+    else if (userDefaults.object(forKey: UDKey.commonRemainingSkins) as! [String] == []) && (userDefaults.object(forKey: UDKey.epicRemainingSkins) as! [String] == []){
         addMoreSkinsComingSoonBox(self: self)
         buyButtonAnimationActive = true
     }else{

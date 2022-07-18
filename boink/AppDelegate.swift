@@ -24,11 +24,19 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         prepareSound(soundName: "menuSlide", type: "wav", volume: 1, soundPlayer: &SPKey.menuSlideDownSoundPlayer)
         prepareSound(soundName: "titleStomp", type: "wav", volume: 0.8, soundPlayer: &SPKey.titleStompSoundPlayer)
         prepareSound(soundName: "monsterDispense", type: "wav", volume: 1, soundPlayer: &SPKey.monsterDispenseSoundPlayer)
-        prepareSound(soundName: "mysteryBoxShake", type: "wav", volume: 1.2, soundPlayer: &SPKey.mysteryBoxShakeSoundPlayer)
-        prepareSound(soundName: "mysteryBoxDispense", type: "wav", volume: 1, soundPlayer: &SPKey.mysteryBoxDispenseSoundPlayer)
+        prepareSound(soundName: "mysteryBoxShaking", type: "wav", volume: 0.5, soundPlayer: &SPKey.mysteryBoxShakeSoundPlayer)
+        prepareSound(soundName: "chaching", type: "wav", volume: 1, soundPlayer: &SPKey.chaching)
+        prepareSound(soundName: "mysteryBoxDispense", type: "wav", volume: 0.8, soundPlayer: &SPKey.mysteryBoxDispenseSoundPlayer)
+        prepareSound(soundName: "mysteryPackageBreak", type: "wav", volume: 1, soundPlayer: &SPKey.mysteryPackageBreak)
+        prepareSound(soundName: "revealSkinMusic", type: "wav", volume: 1.1, soundPlayer: &SPKey.revealSkinMusic)
+        prepareSound(soundName: "buttonClick", type: "wav", volume: 0.7, soundPlayer: &SPKey.buttonClick)
+        prepareSound(soundName: "equippedButtonClick", type: "wav", volume: 0.8, soundPlayer: &SPKey.equippedButtonClick)
+        prepareSound(soundName: "epicRevealSkinMusic", type: "wav", volume: 1.1, soundPlayer: &SPKey.epicRevealSkinMusic)
+        
         return true
     }
-
+    
+    
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
         return true

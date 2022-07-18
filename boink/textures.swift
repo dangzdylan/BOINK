@@ -47,36 +47,6 @@ public let monsterAnimation_BL = SKAction.animate(with: monsterTextures_BL, time
 public let monsterAnimation_BR = SKAction.animate(with: monsterTextures_BR, timePerFrame: 0.1)
 
 
-func isInMonsterTextureArray(monsterDesc:String, textureArray: [SKTexture]) -> Bool{
-    
-    for texture in textureArray{
-        if monsterDesc == texture.description{
-            return true
-        }
-    }
-    
-    return false
-}
-
-
-
-//monster speed up animation
-public let monsterSpeedUpTexture_TR = [SKTexture(imageNamed: "enemySpeedUpFrame1_TR"), SKTexture(imageNamed: "enemySpeedUpFrame2_TR"), SKTexture(imageNamed: "enemySpeedUpFrame3_TR"), SKTexture(imageNamed: "enemySpeedUpFrame4_TR"), SKTexture(imageNamed: "enemySpeedUpFrame5_TR"), SKTexture(imageNamed: "enemySpeedUpFrame6_TR"), SKTexture(imageNamed: "enemySpeedUpFrame7_TR"), SKTexture(imageNamed: "enemySpeedUpFrame8_TR"), SKTexture(imageNamed: "enemySpeedUpFrame9_TR"), SKTexture(imageNamed: "enemySpeedUpFrame10_TR"), SKTexture(imageNamed: "enemySpeedUpFrame9_TR"), SKTexture(imageNamed: "enemySpeedUpFrame8_TR"), SKTexture(imageNamed: "enemySpeedUpFrame7_TR"), SKTexture(imageNamed: "enemySpeedUpFrame6_TR"), SKTexture(imageNamed: "enemySpeedUpFrame5_TR"), SKTexture(imageNamed: "enemySpeedUpFrame4_TR"), SKTexture(imageNamed: "enemySpeedUpFrame3_TR"), SKTexture(imageNamed: "enemySpeedUpFrame2_TR"), SKTexture(imageNamed: "enemySpeedUpFrame1_TR")]
-
-public let monsterSpeedUpTexture_TL = [SKTexture(imageNamed: "enemySpeedUpFrame1_TL"), SKTexture(imageNamed: "enemySpeedUpFrame2_TL"), SKTexture(imageNamed: "enemySpeedUpFrame3_TL"), SKTexture(imageNamed: "enemySpeedUpFrame4_TL"), SKTexture(imageNamed: "enemySpeedUpFrame5_TL"), SKTexture(imageNamed: "enemySpeedUpFrame6_TL"), SKTexture(imageNamed: "enemySpeedUpFrame7_TL"), SKTexture(imageNamed: "enemySpeedUpFrame8_TL"), SKTexture(imageNamed: "enemySpeedUpFrame9_TL"), SKTexture(imageNamed: "enemySpeedUpFrame10_TL"), SKTexture(imageNamed: "enemySpeedUpFrame9_TL"), SKTexture(imageNamed: "enemySpeedUpFrame8_TL"), SKTexture(imageNamed: "enemySpeedUpFrame7_TL"), SKTexture(imageNamed: "enemySpeedUpFrame6_TL"), SKTexture(imageNamed: "enemySpeedUpFrame5_TL"), SKTexture(imageNamed: "enemySpeedUpFrame4_TL"), SKTexture(imageNamed: "enemySpeedUpFrame3_TL"), SKTexture(imageNamed: "enemySpeedUpFrame2_TL"), SKTexture(imageNamed: "enemySpeedUpFrame1_TL")]
-
-public let monsterSpeedUpTexture_BL = [SKTexture(imageNamed: "enemySpeedUpFrame1_BL"), SKTexture(imageNamed: "enemySpeedUpFrame2_BL"), SKTexture(imageNamed: "enemySpeedUpFrame3_BL"), SKTexture(imageNamed: "enemySpeedUpFrame4_BL"), SKTexture(imageNamed: "enemySpeedUpFrame5_BL"), SKTexture(imageNamed: "enemySpeedUpFrame6_BL"), SKTexture(imageNamed: "enemySpeedUpFrame7_BL"), SKTexture(imageNamed: "enemySpeedUpFrame8_BL"), SKTexture(imageNamed: "enemySpeedUpFrame9_BL"), SKTexture(imageNamed: "enemySpeedUpFrame10_BL"), SKTexture(imageNamed: "enemySpeedUpFrame9_BL"), SKTexture(imageNamed: "enemySpeedUpFrame8_BL"), SKTexture(imageNamed: "enemySpeedUpFrame7_BL"), SKTexture(imageNamed: "enemySpeedUpFrame6_BL"), SKTexture(imageNamed: "enemySpeedUpFrame5_BL"), SKTexture(imageNamed: "enemySpeedUpFrame4_BL"), SKTexture(imageNamed: "enemySpeedUpFrame3_BL"), SKTexture(imageNamed: "enemySpeedUpFrame2_BL"), SKTexture(imageNamed: "enemySpeedUpFrame1_BL"), ]
-
-public let monsterSpeedUpTexture_BR = [SKTexture(imageNamed: "enemySpeedUpFrame1_BR"), SKTexture(imageNamed: "enemySpeedUpFrame2_BR"), SKTexture(imageNamed: "enemySpeedUpFrame3_BR"), SKTexture(imageNamed: "enemySpeedUpFrame4_BR"), SKTexture(imageNamed: "enemySpeedUpFrame5_BR"), SKTexture(imageNamed: "enemySpeedUpFrame6_BR"), SKTexture(imageNamed: "enemySpeedUpFrame7_BR"), SKTexture(imageNamed: "enemySpeedUpFrame8_BR"), SKTexture(imageNamed: "enemySpeedUpFrame9_BR"), SKTexture(imageNamed: "enemySpeedUpFrame10_BR"), SKTexture(imageNamed: "enemySpeedUpFrame9_BR"), SKTexture(imageNamed: "enemySpeedUpFrame8_BR"), SKTexture(imageNamed: "enemySpeedUpFrame7_BR"), SKTexture(imageNamed: "enemySpeedUpFrame6_BR"), SKTexture(imageNamed: "enemySpeedUpFrame5_BR"), SKTexture(imageNamed: "enemySpeedUpFrame4_BR"), SKTexture(imageNamed: "enemySpeedUpFrame3_BR"), SKTexture(imageNamed: "enemySpeedUpFrame2_BR"), SKTexture(imageNamed: "enemySpeedUpFrame1_BR")]
-
-
-public let speedUpAnimationTimePerFrame = 0.03
-public let monsterSpeedUpAnimation_TR = SKAction.animate(with: monsterSpeedUpTexture_TR, timePerFrame: speedUpAnimationTimePerFrame)
-public let monsterSpeedUpAnimation_TL = SKAction.animate(with: monsterSpeedUpTexture_TL, timePerFrame: speedUpAnimationTimePerFrame)
-public let monsterSpeedUpAnimation_BL = SKAction.animate(with: monsterSpeedUpTexture_BL, timePerFrame: speedUpAnimationTimePerFrame)
-public let monsterSpeedUpAnimation_BR = SKAction.animate(with: monsterSpeedUpTexture_BR, timePerFrame: speedUpAnimationTimePerFrame)
-
-
 func resetButtonTextures(){
     
     //game

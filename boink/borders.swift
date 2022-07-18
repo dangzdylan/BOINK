@@ -81,3 +81,47 @@ func addBorders(self:GameScene){
   
     
 
+
+
+func addColoredPlayAreaBackgroundObjs(self:SKScene, color:UIColor){
+    backgroundPlayArea = SKSpriteNode(color: .blue, size: CGSize(width: xPointBorder * 2, height: yPointBorder * 2))
+    backgroundPlayArea.position = CGPoint(x:0, y:0)
+    backgroundPlayArea.texture = SKTexture(imageNamed: "boinkPlayArea")
+    backgroundPlayArea.zPosition = CGFloat(Int16.min)
+    
+    backgroundPlayAreaAlphaCover = SKSpriteNode(color: .purple, size: backgroundPlayArea.size)
+    backgroundPlayAreaAlphaCover.position = backgroundPlayArea.position
+    backgroundPlayAreaAlphaCover.alpha = 0.7
+    backgroundPlayAreaAlphaCover.zPosition = backgroundPlayArea.zPosition + 1
+    
+    changePlayAreaBackgroundColor(c: color)
+    
+    self.addChild(backgroundPlayArea)
+    self.addChild(backgroundPlayAreaAlphaCover)
+    
+    
+    
+    
+    
+}
+
+
+func changePlayAreaBackgroundColor(c:UIColor){
+    backgroundPlayAreaAlphaCover.color = c
+}
+
+
+
+
+
+func addWavyBackground(self:SKScene){
+    let wavyBackground = SKSpriteNode(color: .blue, size:  self.frame.size)
+    wavyBackground.position = CGPoint(x:0, y:0)
+    wavyBackground.texture = SKTexture(imageNamed: "wavyLines")
+    wavyBackground.zPosition = CGFloat(Int16.min)
+    wavyBackground.alpha = 0.08125
+    
+    self.addChild(wavyBackground)
+    
+    
+}

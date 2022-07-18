@@ -21,9 +21,8 @@ class ShopScene : SKScene{
         addBackToGameButton(self: self, pos: CGPoint(x: 0, y: -self.frame.height/2 + screenHeight/20), diameter: screenHeight / 25)
         addBuyButton(self: self)
         
-        let temp = CrateOpeningScene(fileNamed: "CrateOpeningScene")
-        //self.scene?.view?.presentScene(temp!, transition: SKTransition.fade(withDuration: 0.3))
-        
+        self.backgroundColor = shopBackgroundColor
+        addWavyBackground(self: self)
     
     }
     
@@ -61,6 +60,7 @@ class ShopScene : SKScene{
             //purchase 
             }else if buyButton.contains(location) && !buyButtonAnimationActive && clicked.buyButton{
                 checkAvailableSkins(self: self)
+                playSound(soundPlayer: SPKey.buttonClick)
             }else{
                 resetButtonTextures()
             }

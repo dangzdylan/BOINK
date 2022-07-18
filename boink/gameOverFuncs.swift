@@ -38,11 +38,13 @@ func gameOverAnimation(self: SKScene){
     for monster in monsterArray{
         monster.physicsBody?.isDynamic = false
     }
-    
     Player.physicsBody?.isDynamic = false
     
+    
+    
     Timer.scheduledTimer(withTimeInterval: 0.3, repeats: false){timer in
-        Player.texture = deadPlayerTexture()
+        Player.colorBlendFactor = 0.93
+        //Player.texture = deadPlayerTexture()
     }
      
     
@@ -50,6 +52,7 @@ func gameOverAnimation(self: SKScene){
         let movePlayer = SKAction.move(to: CGPoint(x: Player.position.x, y: -screenHeight), duration: 2)
         Player.run(movePlayer)
     }
+     
 }
 
 
@@ -133,11 +136,8 @@ func menuExit(self:SKScene, boxArr:[SKNode]){
             }
             playSound(soundPlayer: SPKey.menuSlideDownSoundPlayer)
         }
-        let setToInactive = SKAction.run{
-            menuAnimationActive = false
-        }
         
-        self.run(SKAction.sequence([moveMenu, setToInactive]))
+        self.run(moveMenu)
         
     }
     
@@ -149,6 +149,8 @@ func replayButtonClicked(self:SKScene){
     playAgainButtonActive = false
     menuExit(self: self, boxArr: [menuBox, playAgain, scoreWordLabel, scoreNumberLabel])
     Timer.scheduledTimer(withTimeInterval: 1, repeats: false){timer in
+        menuAnimationActive = false
+        
         let temp = GameScene(fileNamed: "GameScene")
         self.scene?.view?.presentScene(temp!, transition: SKTransition.fade(withDuration: 1))
     }

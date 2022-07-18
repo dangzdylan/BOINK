@@ -15,12 +15,13 @@ import UIKit
 func addPlayer(self:SKScene){
     
     let diameter = screenHeight/40
-    Player = SKSpriteNode(color: .gray, size: CGSize(width: diameter, height: diameter))
+    Player = SKSpriteNode(color: color(hex: "202020"), size: CGSize(width: diameter, height: diameter))
     
     Player.texture = playerLookDown
     Player.zRotation = 0
     
     Player.position = CGPoint(x: 0, y: 0)
+    Player.colorBlendFactor = 0
     
 
     //player physics
@@ -139,6 +140,8 @@ func PlayerTouchBorder(borderBit:UInt32){
 
 
 func deadPlayerTexture() -> SKTexture{
+    
+    
     if Player.texture == playerTopRight{
         return deadPlayerTextureArr[0]
     }else if Player.texture == playerTopLeft{

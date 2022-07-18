@@ -35,7 +35,6 @@ func checkForChangeLevel(self:SKScene){
         eigthLevel(self: self)
     }else if scoreNum == 8 * tempMultiplier1{
         ninthLevel(self: self)
-        coinMultiplier += 1
     }else if scoreNum == 9 * tempMultiplier1{
         tenthLevel(self: self)
     }else if scoreNum == 10 * tempMultiplier1{

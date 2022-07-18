@@ -31,6 +31,9 @@ public var rightBorder = SKShapeNode()
 public var borderBackground = SKSpriteNode()
 public let backgroundZPos:CGFloat = -100
 
+public var backgroundPlayArea = SKSpriteNode()
+public var backgroundPlayAreaAlphaCover = SKSpriteNode()
+
 //border positions
 public  let xPointBorder = screenHeight/10
 public let yPointBorder = screenHeight/5
