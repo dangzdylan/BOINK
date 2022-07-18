@@ -32,6 +32,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         prepareSound(soundName: "buttonClick", type: "wav", volume: 0.7, soundPlayer: &SPKey.buttonClick)
         prepareSound(soundName: "equippedButtonClick", type: "wav", volume: 0.8, soundPlayer: &SPKey.equippedButtonClick)
         prepareSound(soundName: "epicRevealSkinMusic", type: "wav", volume: 1.1, soundPlayer: &SPKey.epicRevealSkinMusic)
+        prepareSound(soundName: "shopPurchaseFail", type: "wav", volume: 0.8, soundPlayer: &SPKey.shopPurchaseFail)
         
         return true
     }

@@ -80,6 +80,7 @@ public struct SPKey{
     static var epicRevealSkinMusic: AVAudioPlayer?
     static var buttonClick: AVAudioPlayer?
     static var equippedButtonClick: AVAudioPlayer?
+    static var shopPurchaseFail: AVAudioPlayer?
 }
 
 

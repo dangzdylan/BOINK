@@ -35,9 +35,27 @@ func isUpdateAvailable() throws -> Bool {
     }
     if let result = (json["results"] as? [Any])?.first as? [String: Any], let version = result["version"] as? String {
         print (version, currentVersion)
-        return version != currentVersion
+        
+        return needsUpdate(appVers: version, devVers: currentVersion)
+        //return version != currentVersion
     }
     throw VersionError.invalidResponse
+}
+
+func needsUpdate(appVers:String, devVers:String)-> Bool{
+    
+    //debugging
+    print(appVers, devVers, devVers[devVers.index(devVers.startIndex, offsetBy: 0)], devVers[devVers.index(devVers.startIndex, offsetBy: 2)])
+    if devVers[devVers.index(devVers.startIndex, offsetBy: 0)] > appVers[appVers.index(appVers.startIndex, offsetBy: 0)] || devVers[devVers.index(devVers.startIndex, offsetBy: 2)] > appVers[appVers.index(appVers.startIndex, offsetBy: 2)]{
+        return false
+    }
+    
+    //bug
+    if devVers[devVers.index(devVers.startIndex, offsetBy: 0)] == appVers[appVers.index(appVers.startIndex, offsetBy: 0)] && devVers[devVers.index(devVers.startIndex, offsetBy: 2)] == appVers[appVers.index(appVers.startIndex, offsetBy: 2)]{
+        return false
+    }
+    
+    return true
 }
 
 

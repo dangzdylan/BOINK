@@ -62,6 +62,10 @@ func attemptPurchase(self: SKScene){
         unsuccessfulPurchase(self: self)
     //success
     }else{
+        //play sound
+        playSound(soundPlayer: SPKey.buttonClick)
+        
+        //take out from purse
         userDefaults.setValue(purse - mysterySkinPrice, forKey: UDKey.coinPurse)
         displayedCoinPurse.text = String(purse - mysterySkinPrice)
         chooseRandomSkin(self: self)
@@ -74,6 +78,8 @@ func attemptPurchase(self: SKScene){
 }
 
 func unsuccessfulPurchase(self: SKScene){
+    //sound
+    playSound(soundPlayer: SPKey.shopPurchaseFail)
     
     buyButtonAnimationActive = true
     let badTexture = SKAction.run {
@@ -86,7 +92,7 @@ func unsuccessfulPurchase(self: SKScene){
         buyButton.texture = SKTexture(imageNamed: "buyButton")
         
     }
-    let wait2 = SKAction.wait(forDuration: 0.3)
+    let wait2 = SKAction.wait(forDuration: 0.5)
     
     let changeActive = SKAction.run{
         buyButtonAnimationActive = false

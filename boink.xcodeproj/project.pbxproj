@@ -28,6 +28,7 @@
 		FC274E0C2870D551008FEFE1 /* chaching.wav in Resources */ = {isa = PBXBuildFile; fileRef = FC274E0B2870D551008FEFE1 /* chaching.wav */; };
 		FC294D452875679500EAA373 /* mysteryPackageBreak.wav in Resources */ = {isa = PBXBuildFile; fileRef = FC294D442875679500EAA373 /* mysteryPackageBreak.wav */; };
 		FC294D472875691E00EAA373 /* mysteryBoxDispense.wav in Resources */ = {isa = PBXBuildFile; fileRef = FC294D462875691E00EAA373 /* mysteryBoxDispense.wav */; };
+		FC298A8E2885114B00DE7487 /* shopPurchaseFail.wav in Resources */ = {isa = PBXBuildFile; fileRef = FC298A8D2885114B00DE7487 /* shopPurchaseFail.wav */; };
 		FC2DED5E286EB6FA00AC5F6A /* skinRevealScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC2DED5D286EB6FA00AC5F6A /* skinRevealScene.swift */; };
 		FC2DED60286EB9F000AC5F6A /* SkinRevealScene.sks in Resources */ = {isa = PBXBuildFile; fileRef = FC2DED5F286EB9F000AC5F6A /* SkinRevealScene.sks */; };
 		FC3686AE27A918A1007CF7E5 /* version.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC3686AD27A918A1007CF7E5 /* version.swift */; };
@@ -110,6 +111,7 @@
 		FC274E0B2870D551008FEFE1 /* chaching.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = chaching.wav; sourceTree = "<group>"; };
 		FC294D442875679500EAA373 /* mysteryPackageBreak.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = mysteryPackageBreak.wav; sourceTree = "<group>"; };
 		FC294D462875691E00EAA373 /* mysteryBoxDispense.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = mysteryBoxDispense.wav; sourceTree = "<group>"; };
+		FC298A8D2885114B00DE7487 /* shopPurchaseFail.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = shopPurchaseFail.wav; sourceTree = "<group>"; };
 		FC2DED5D286EB6FA00AC5F6A /* skinRevealScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = skinRevealScene.swift; sourceTree = "<group>"; };
 		FC2DED5F286EB9F000AC5F6A /* SkinRevealScene.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = SkinRevealScene.sks; sourceTree = "<group>"; };
 		FC3686AD27A918A1007CF7E5 /* version.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = version.swift; sourceTree = "<group>"; };
@@ -186,6 +188,7 @@
 		FC0E00DC26D34737000C3987 /* sound effects */ = {
 			isa = PBXGroup;
 			children = (
+				FC298A8D2885114B00DE7487 /* shopPurchaseFail.wav */,
 				FCCFE7382884EFAB007D3D16 /* epicRevealSkinMusic.wav */,
 				FCCFE7362884EC44007D3D16 /* revealSkinMusic.wav */,
 				FCCFE7342884EBC2007D3D16 /* revealSkinMusic2.wav */,
@@ -435,6 +438,7 @@
 				FCCFE72F2884E767007D3D16 /* equippedButtonClick.wav in Resources */,
 				FC274267273897F600BE46B6 /* BluenightRegular.otf in Resources */,
 				FC00130127C37929006106D5 /* CrateOpeningScene.sks in Resources */,
+				FC298A8E2885114B00DE7487 /* shopPurchaseFail.wav in Resources */,
 				FC2DED60286EB9F000AC5F6A /* SkinRevealScene.sks in Resources */,
 				FCCFE7372884EC44007D3D16 /* revealSkinMusic.wav in Resources */,
 				FC274269273897F600BE46B6 /* BluenightRegular.ttf in Resources */,

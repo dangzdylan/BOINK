@@ -60,7 +60,6 @@ class ShopScene : SKScene{
             //purchase 
             }else if buyButton.contains(location) && !buyButtonAnimationActive && clicked.buyButton{
                 checkAvailableSkins(self: self)
-                playSound(soundPlayer: SPKey.buttonClick)
             }else{
                 resetButtonTextures()
             }
