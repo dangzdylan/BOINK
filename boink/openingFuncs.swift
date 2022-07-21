@@ -167,7 +167,7 @@ func crateOpeningAnimation(self:SKScene){
 //add new skin to inventory (in chooseRandomSkin func)
 func addToInventory(skinID: String){
     
-    let skin = skinDictionary[skinID]
+
     //move into inventory
     if userDefaults.value(forKey: UDKey.inventory) != nil{
         var array = userDefaults.object(forKey: UDKey.inventory) as! [String]
