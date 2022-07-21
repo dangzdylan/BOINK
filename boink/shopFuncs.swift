@@ -168,6 +168,12 @@ func addCoinPurseText(self:SKScene){
 //MORECOMINGSOON
 
 func checkAvailableSkins(self:SKScene){
+    
+    //check for nil
+    if userDefaults.value(forKey: UDKey.inventory) == nil{
+        userDefaults.setValue(["0"], forKey: UDKey.inventory)
+    }
+    
     let inv = userDefaults.value(forKey: UDKey.inventory) as! [String]
     
     //inv.count - 1 cuz default in inv

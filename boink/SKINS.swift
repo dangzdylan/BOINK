@@ -49,6 +49,7 @@ public let skinDictionary = [
     "10" : ObjectSkin(name: "CYCLER", textures: skinPackage(name: "motorcycler"), rarity: rarityKey.common, skinType: typeKey.player, background: backColor.common),
     "11" : ObjectSkin(name: "PURP", textures: skinPackage(name: "purple"), rarity: rarityKey.common, skinType: typeKey.player, background: backColor.common),
     "12" : ObjectSkin(name: "DARK", textures: skinPackage(name: "darkDefault"), rarity: rarityKey.common, skinType: typeKey.player, background: backColor.common),
+    "13" : ObjectSkin(name: "PIRATE", textures: skinPackage(name: "pirate"), rarity: rarityKey.common, skinType: typeKey.player, background: backColor.common),
     
     
     
