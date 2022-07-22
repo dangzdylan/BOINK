@@ -54,6 +54,7 @@ func resetButtonTextures(){
     shopButton.texture = SKTexture(imageNamed: "shopButtonIcon")
     inventoryButton.texture = SKTexture(imageNamed: "inventoryButton")
     playAgain.texture = SKTexture(imageNamed: "replayButton")
+    backToHomeButton.texture = SKTexture(imageNamed: "menuHomeButton")
     
     
     //inv

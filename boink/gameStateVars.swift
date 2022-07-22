@@ -21,6 +21,8 @@ public var titleLabelAnimationFinished = true
 public var infoMenuActive = false
 public var menuAnimationActive = false
 
+public var replayButtonHasBeenClicked = false
+
 
 //score
 public var score  = SKLabelNode()
@@ -36,6 +38,7 @@ public var gameHasEnded = false
 public var menuBox = SKSpriteNode()
 public let menuBoxY:CGFloat = screenHeight
 public var playAgain = SKSpriteNode()
+public var backToHomeButton = SKSpriteNode()
 public var scoreWordLabel = SKLabelNode()
 public var scoreNumberLabel = SKLabelNode()
 public var playAgainButtonActive = false
@@ -113,6 +116,8 @@ public struct clicked{
     static var shopButton = false
     static var buyButton = false
     static var equipButton = false
+    static var playAgainButton = false
+    static var backToHomeButton = false
 }
 
 func resetClickedButtons(){
@@ -124,4 +129,6 @@ func resetClickedButtons(){
     clicked.shopButton = false
     clicked.buyButton = false
     clicked.equipButton = false
+    clicked.playAgainButton = false
+    clicked.backToHomeButton = false
 }

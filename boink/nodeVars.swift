@@ -18,11 +18,6 @@ import UIKit
 public var screenWidth = UIScreen.main.bounds.size.width * CGFloat(2)
 public var screenHeight = UIScreen.main.bounds.size.height * CGFloat(2)
 
-//view frame dimension
-
-//public let frameWidth = screenWidth / 2
-//public let frameHeight = screenHeight / 2
-
 //borders
 public var topBorder = SKShapeNode()
 public var bottomBorder = SKShapeNode()

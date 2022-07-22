@@ -15,6 +15,8 @@ import UIKit
 class GameScene: SKScene, SKPhysicsContactDelegate {
     
     override func didMove(to view: SKView) {
+        
+        
         addBorders(self:self)
         setBackground(self: self, chosenColor:backgroundColorWays[1]!, borderBackgroundtext: borderBackgroundTextures[1])
         self.physicsWorld.contactDelegate = self
@@ -36,6 +38,10 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         addInventoryButton(self: self, pos: CGPoint(x: leaderboardButton.position.x - screenHeight/18, y: leaderboardButton.position.y), diameter: screenHeight / 30)
 
         determineRank(self:self)
+        
+        if replayButtonHasBeenClicked{
+            callStartFuncs(self: self)
+        }
         
         
         
@@ -78,11 +84,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     
                 //START GAME
                 }else if !infoMenuActive{
-                    //stop title sound and start game
-                    SPKey.titleStompSoundPlayer!.stop()
-                    gameHasStarted = true
-                    startGame(self: self)
-                    movePlayer(self:self)
+                    callStartFuncs(self: self)
                 }
                 
             }
@@ -95,7 +97,15 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
             for touch in touches{
                 let location = touch.location(in: self)
                 if playAgain.contains(location) && playAgainButtonActive{
+                    
+                    clicked.playAgainButton = true
                     playAgain.texture = SKTexture(imageNamed: "clickedReplayButton")
+                    
+                }else if backToHomeButton.contains(location) && playAgainButtonActive{
+                    
+                    clicked.backToHomeButton = true
+                    backToHomeButton.texture = SKTexture(imageNamed: "clickedMenuHomeButton")
+                    
                 }
             
             }
@@ -103,6 +113,8 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         
         
     }
+    
+    
     
     
     override func touchesEnded(_ touches: Set<UITouch>, with event: UIEvent?) {
@@ -129,13 +141,20 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
                 }else{
                     resetButtonTextures()
                 }
-                resetClickedButtons()
             //replay button
-            }else if gameHasEnded && playAgain.contains(location) && !menuAnimationActive{
-                replayButtonClicked(self: self)
+            }else if gameHasEnded && !menuAnimationActive{
+                if playAgain.contains(location) && clicked.playAgainButton{
+                    replayButtonClicked(self: self)
+                }else if backToHomeButton.contains(location) && clicked.backToHomeButton{
+                    menuHomeButtonClicked(self: self)
+                }else{
+                    resetButtonTextures()
+                }
             }else{
                 resetButtonTextures()
             }
+            
+            resetClickedButtons()
             
         }
     }

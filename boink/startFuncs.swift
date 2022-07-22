@@ -50,7 +50,14 @@ func startGame(self:SKScene){
     
     //call funcs
     addScoreLabel(self: self)
-    spawnMonster(self: self)
+    
+    var d:Double = 0
+    if replayButtonHasBeenClicked{
+        d = 0.5
+    }
+    Timer.scheduledTimer(withTimeInterval: d, repeats: false){timer in
+        spawnMonster(self: self)
+    }
     
     //hide highscore
     highScoreWordLabel.isHidden = true
@@ -122,4 +129,16 @@ func addTapToStartLabels(self:SKScene){
     //add to scene
     self.addChild(tapToLabel)
     self.addChild(startLabel)
+}
+
+
+func callStartFuncs(self:SKScene){
+    
+    
+    
+    gameHasStarted = true
+    startGame(self: self)
+    movePlayer(self:self)
+    
+    replayButtonHasBeenClicked = false
 }

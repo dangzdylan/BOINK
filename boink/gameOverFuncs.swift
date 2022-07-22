@@ -65,13 +65,20 @@ func gameOverMenu(self:SKScene){
     
     //put in score and play again button
     let margins = screenHeight/100
-    
+
     //play again button
-    playAgain = SKSpriteNode(color:.white, size: CGSize(width:menuBox.size.height / 1.5 , height: menuBox.size.height / 3))
-    playAgain.position = CGPoint(x: menuBox.position.x, y: menuBox.position.y - playAgain.size.height + margins)
+    playAgain = SKSpriteNode(color:.white, size: CGSize(width:menuBox.size.height / 3 , height: menuBox.size.height / 3))
+    playAgain.position = CGPoint(x: menuBox.position.x + playAgain.size.width/1.7, y: menuBox.position.y - playAgain.size.height + margins)
     playAgain.zPosition = boxZPos + 1
     playAgain.texture = SKTexture(imageNamed: "replayButton")
     playAgainButtonActive = true
+    
+    //back to home
+    backToHomeButton = SKSpriteNode(color: .purple, size: playAgain.size)
+    backToHomeButton.position = CGPoint(x: menuBox.position.x - backToHomeButton.size.width/1.7, y: playAgain.position.y)
+    backToHomeButton.zPosition = playAgain.zPosition
+    backToHomeButton.texture = SKTexture(imageNamed: "menuHomeButton")
+    
          
     //word score
     scoreWordLabel = SKLabelNode(text: "SCORE:")
@@ -89,7 +96,7 @@ func gameOverMenu(self:SKScene){
     
     
     //run action
-    let boxArr = [menuBox, playAgain, scoreWordLabel, scoreNumberLabel]
+    let boxArr = [menuBox, playAgain, scoreWordLabel, scoreNumberLabel, backToHomeButton]
 
     menuEnter(self: self, boxArr: boxArr)
 
@@ -111,7 +118,7 @@ func menuEnter(self:SKScene, boxArr:[SKNode]){
    
 }
 
-func menuExit(self:SKScene, boxArr:[SKNode]){
+func menuExit(self:SKScene, boxArr:[SKNode], moveOutDur: Double){
     
     menuAnimationActive = true
     //scootdown
@@ -125,7 +132,7 @@ func menuExit(self:SKScene, boxArr:[SKNode]){
     Timer.scheduledTimer(withTimeInterval: 0.4, repeats: false){timer in
         let moveMenu = SKAction.run {
             for sprite in boxArr{
-                let spriteMove = SKAction.moveTo(y: screenHeight, duration: 1)
+                let spriteMove = SKAction.moveTo(y: screenHeight, duration: moveOutDur)
                 spriteMove.timingMode = .easeIn
             
                 let eraseSprite = SKAction.run {
@@ -146,12 +153,33 @@ func menuExit(self:SKScene, boxArr:[SKNode]){
 
 func replayButtonClicked(self:SKScene){
     playAgain.texture = SKTexture(imageNamed: "replayButton")
+    
     playAgainButtonActive = false
-    menuExit(self: self, boxArr: [menuBox, playAgain, scoreWordLabel, scoreNumberLabel])
+    replayButtonHasBeenClicked = true
+    
+    
+    menuExit(self: self, boxArr: [menuBox, playAgain, scoreWordLabel, scoreNumberLabel, backToHomeButton], moveOutDur: 0.8)
+    Timer.scheduledTimer(withTimeInterval: 0.9, repeats: false){timer in
+        menuAnimationActive = false
+        print("HHHHHHHHHHHH")
+        
+        self.removeAllChildren()
+        let temp = GameScene(fileNamed: "GameScene")
+        self.scene?.view?.presentScene(temp!, transition: SKTransition.fade(withDuration: 0.8))
+    }
+}
+
+
+func menuHomeButtonClicked(self:SKScene){
+    backToHomeButton.texture = SKTexture(imageNamed: "menuHomeButton")
+    playAgainButtonActive = false
+    menuExit(self: self, boxArr: [menuBox, playAgain, scoreWordLabel, scoreNumberLabel, backToHomeButton], moveOutDur: 1)
     Timer.scheduledTimer(withTimeInterval: 1, repeats: false){timer in
         menuAnimationActive = false
         
+        self.removeAllChildren()
         let temp = GameScene(fileNamed: "GameScene")
-        self.scene?.view?.presentScene(temp!, transition: SKTransition.fade(withDuration: 1))
+        self.scene?.view?.presentScene(temp!, transition: SKTransition.fade(withDuration: 0.8))
     }
+    
 }
