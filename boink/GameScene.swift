@@ -18,7 +18,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         
         
         addBorders(self:self)
-        setBackground(self: self, chosenColor:backgroundColorWays[1]!, borderBackgroundtext: borderBackgroundTextures[1])
+        chooseBackgroundIndex(self: self, ind: 1)
         self.physicsWorld.contactDelegate = self
         
         

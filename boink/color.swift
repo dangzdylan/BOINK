@@ -11,21 +11,25 @@ import AVFoundation
 import GameKit
 import UIKit
 
+
+func borderBackgroundTextures(ind:Int)-> SKTexture{
+    return SKTexture(imageNamed: String(ind) + "borderBackground")
+}
+
 //0 = play area and font color; 1 = background color
-
-public let borderBackgroundTextures:[SKTexture] = [SKTexture(), SKTexture(imageNamed: "1borderBackground"), SKTexture(imageNamed: "2borderBackground"), SKTexture(imageNamed: "3borderBackground"), SKTexture(imageNamed: "4borderBackground"), SKTexture(imageNamed: "5borderBackground"), SKTexture(imageNamed: "6borderBackground"), SKTexture(imageNamed: "7borderBackground"), SKTexture(imageNamed: "8borderBackground"), SKTexture(imageNamed: "9borderBackground"), SKTexture(imageNamed: "10borderBackground"), SKTexture(imageNamed: "11borderBackground")]
-
 public let backgroundColorWays:[Int: [String]] = [1 : ["FFFFFF", "CDCACC"],
-                          8 : ["668586","93C6D6"],
-                          7 : ["8ADCBD", "F0D3E0"],
-                          5 : ["F9E4D0", "9C3940"],
-                          4 : ["9AA2E5", "2E1489"],
-                        9 : ["D9B8C4", "957186"],
-                        2 : ["898076", "BAAEA1"],
-                        3 : ["FBF8C9","F29B66"],
-                        6 : ["315E26","7A9F79"],
-                        11 : ["010000","CDCACC"],
-                        10 : ["D6A5FA", "6B527D"]
+                                                  2 : ["898076", "BAAEA1"],
+                                                  3 : ["FBF8C9","F29B66"],
+                                                  4 : ["9AA2E5", "2E1489"],
+                                                  5 : ["F9E4D0", "9C3940"],
+                                                  6 : ["315E26","7A9F79"],
+                                                  7 : ["8ADCBD", "F0D3E0"],
+                                                  8 : ["668586","93C6D6"],
+                                                  9 : ["D9B8C4", "957186"],
+                                                  10 : ["D6A5FA", "6B527D"],
+                                                  11 : ["666666","E0D0C1"],
+                                                  12 : ["B1DBC7", "4CA591"],
+                                                  13 : ["FFF08D", "292205"],
                                             
 ]
 public var textBorderColor = color(hex: "FFFFFF")

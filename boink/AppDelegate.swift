@@ -18,6 +18,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     var window: UIWindow?
     
     func application(_ application: UIApplication, willFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey : Any]? = nil) -> Bool{
+        
+        setAudioSessionCategory()
+        
         prepareSound(soundName:"collectCoin", type:"wav", volume:1, soundPlayer: &SPKey.collectCoinSoundPlayer)
         prepareSound(soundName:"gameOver", type:"wav", volume:1, soundPlayer: &SPKey.gameOverSoundPlayer)
         prepareSound(soundName: "menuSlide", type: "wav", volume: 1, soundPlayer: &SPKey.menuSlideUpSoundPlayer)

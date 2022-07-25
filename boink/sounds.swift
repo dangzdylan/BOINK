@@ -58,6 +58,18 @@ extension DispatchQueue {
 
 
 
+func setAudioSessionCategory(){
+    do{
+       try AVAudioSession.sharedInstance().setCategory(.ambient)
+       try AVAudioSession.sharedInstance().setActive(true, options: .notifyOthersOnDeactivation)
+    } catch {
+       print("SOUND SHARED INSTANCE ERROR")
+    }
+}
+
+
+
+
 
 
 
