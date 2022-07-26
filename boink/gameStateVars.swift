@@ -22,6 +22,7 @@ public var infoMenuActive = false
 public var menuAnimationActive = false
 
 public var replayButtonHasBeenClicked = false
+public var playerShrinkAnimationActive = false
 
 
 //score
@@ -81,12 +82,9 @@ public struct SPKey{
     static var equippedButtonClick: AVAudioPlayer?
     static var shopPurchaseFail: AVAudioPlayer?
     static var inventoryArrowClick: AVAudioPlayer?
+    static var playerShrink: AVAudioPlayer?
 }
 
-
-
-//level
-public var currentLevelLabel = SKLabelNode()
 
 
 //font

@@ -74,7 +74,6 @@ func attemptPurchase(self: SKScene){
         self.scene?.view?.presentScene(temp!, transition: SKTransition.fade(withDuration: 0.01))
     }
     
-    //print(userDefaults.object(forKey: UDKey.commonRemainingSkins) as! [String])
 }
 
 func unsuccessfulPurchase(self: SKScene){

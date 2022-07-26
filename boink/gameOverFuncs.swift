@@ -161,7 +161,6 @@ func replayButtonClicked(self:SKScene){
     menuExit(self: self, boxArr: [menuBox, playAgain, scoreWordLabel, scoreNumberLabel, backToHomeButton], moveOutDur: 0.8)
     Timer.scheduledTimer(withTimeInterval: 0.9, repeats: false){timer in
         menuAnimationActive = false
-        print("HHHHHHHHHHHH")
         
         self.removeAllChildren()
         let temp = GameScene(fileNamed: "GameScene")

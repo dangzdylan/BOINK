@@ -63,7 +63,7 @@ public var playerVelo = CGVector()
 
 //monster
 public let monsterSpeedGlitchFix = 14.2737
-public var monsterDiameter = Player.size.width
+public var monsterDiameter = screenHeight/40
 public let monsterSpeedConstant = monsterDiameter / 7.035
 //prev div = 6.5
 public var monsterSpeed = monsterSpeedConstant
@@ -86,9 +86,8 @@ public let infoMenuArr = [menuBox, gameVersionLabel, aboutCreaterLabel, aboutHel
 public var volumeButton = SKSpriteNode()
 
 
-
-
-
+//buttons
+public let GameSceneButtonHeight = -screenHeight/7.5
 
 
 

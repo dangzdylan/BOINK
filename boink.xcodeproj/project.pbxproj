@@ -37,6 +37,7 @@
 		FC63C32A26ED691300738FB2 /* checklist.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC63C32926ED691300738FB2 /* checklist.swift */; };
 		FC6C5AFF27C8B55B0078DBDC /* inventoryVars.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC6C5AFE27C8B55B0078DBDC /* inventoryVars.swift */; };
 		FC6C5B0127C8CB790078DBDC /* SKINS.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC6C5B0027C8CB790078DBDC /* SKINS.swift */; };
+		FC76F48C2890B3550085BCC1 /* playerShrink.wav in Resources */ = {isa = PBXBuildFile; fileRef = FC76F48B2890B3550085BCC1 /* playerShrink.wav */; };
 		FC83E577277147C900748FB4 /* launchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FC83E576277147C900748FB4 /* launchScreen.storyboard */; };
 		FC83E57B27714B7800748FB4 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FC83E57927714B7800748FB4 /* Main.storyboard */; };
 		FC987FA6277FBDCC009C6A0A /* infoFuncs.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC987FA5277FBDCC009C6A0A /* infoFuncs.swift */; };
@@ -120,6 +121,7 @@
 		FC63C32926ED691300738FB2 /* checklist.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = checklist.swift; sourceTree = "<group>"; };
 		FC6C5AFE27C8B55B0078DBDC /* inventoryVars.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = inventoryVars.swift; sourceTree = "<group>"; };
 		FC6C5B0027C8CB790078DBDC /* SKINS.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SKINS.swift; sourceTree = "<group>"; };
+		FC76F48B2890B3550085BCC1 /* playerShrink.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = playerShrink.wav; sourceTree = "<group>"; };
 		FC83E576277147C900748FB4 /* launchScreen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = launchScreen.storyboard; sourceTree = "<group>"; };
 		FC83E57A27714B7800748FB4 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		FC987FA5277FBDCC009C6A0A /* infoFuncs.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = infoFuncs.swift; sourceTree = "<group>"; };
@@ -190,6 +192,7 @@
 		FC0E00DC26D34737000C3987 /* sound effects */ = {
 			isa = PBXGroup;
 			children = (
+				FC76F48B2890B3550085BCC1 /* playerShrink.wav */,
 				FC50448D2885353800D83E5B /* inventoryArrowClick.wav */,
 				FC298A8D2885114B00DE7487 /* shopPurchaseFail.wav */,
 				FCCFE7382884EFAB007D3D16 /* epicRevealSkinMusic.wav */,
@@ -463,6 +466,7 @@
 				FC074A87274F0F7700B95747 /* collectCoin.wav in Resources */,
 				FCDBEDD227C209A700B4977D /* InventoryScene.sks in Resources */,
 				FC274268273897F600BE46B6 /* info.txt in Resources */,
+				FC76F48C2890B3550085BCC1 /* playerShrink.wav in Resources */,
 				FCBEB22A26D0A46F000E1FD0 /* Actions.sks in Resources */,
 				FC294D452875679500EAA373 /* mysteryPackageBreak.wav in Resources */,
 				FCCFE7392884EFAB007D3D16 /* epicRevealSkinMusic.wav in Resources */,

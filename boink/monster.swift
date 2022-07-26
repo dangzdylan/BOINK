@@ -210,7 +210,7 @@ func monsterTextureRotation(monsterBody:SKPhysicsBody, borderBit: UInt32, monste
 func addSpawner(self:SKScene){
     //vars
     let spawnerColor:UIColor = .blue
-    let spawnerSize = Player.size
+    let spawnerSize = CGSize(width: monsterDiameter, height: monsterDiameter)
     let spawnerTexture = SKTexture(imageNamed: "enemySpawn")
     
     //node dec

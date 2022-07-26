@@ -40,7 +40,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         determineRank(self:self)
         
         if replayButtonHasBeenClicked{
-            callStartFuncs(self: self)
+            playPlayerShrinkAnimation(self: self)
         }
         
         
@@ -84,11 +84,11 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     
                 //START GAME
                 }else if !infoMenuActive{
-                    callStartFuncs(self: self)
+                    playPlayerShrinkAnimation(self: self)
                 }
                 
             }
-        }else if titleLabelAnimationFinished && !stopPlayerTextureMove && !infoMenuActive{
+        }else if titleLabelAnimationFinished && !stopPlayerTextureMove && !infoMenuActive && !playerShrinkAnimationActive{
             movePlayer(self:self)
         }
         

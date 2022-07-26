@@ -27,7 +27,7 @@ func showLeaderboards(self:UIViewController){
 func addLeaderboardButton(self:SKScene){
     let diameter = screenHeight/30
     leaderboardButton = SKSpriteNode(color: .blue, size: CGSize(width: diameter, height: diameter))
-    leaderboardButton.position = CGPoint(x:0, y: -screenHeight/9)
+    leaderboardButton.position = CGPoint(x:0, y: GameSceneButtonHeight)
     leaderboardButton.texture = SKTexture(imageNamed: "leaderboardButton")
     
     self.addChild(leaderboardButton)

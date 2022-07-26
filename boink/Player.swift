@@ -14,7 +14,7 @@ import UIKit
 
 func addPlayer(self:SKScene){
     
-    let diameter = screenHeight/40
+    let diameter = screenHeight/12
     Player = SKSpriteNode(color: color(hex: "202020"), size: CGSize(width: diameter, height: diameter))
     
     Player.texture = playerLookDown
@@ -25,7 +25,7 @@ func addPlayer(self:SKScene){
     
 
     //player physics
-    Player.physicsBody = SKPhysicsBody(circleOfRadius: diameter / 2)
+    Player.physicsBody = SKPhysicsBody(circleOfRadius: monsterDiameter / 2)
     
     Player.physicsBody?.categoryBitMask = ColliderType.Player
     Player.physicsBody?.contactTestBitMask = ColliderType.coin | ColliderType.topBorder | ColliderType.bottomBorder | ColliderType.rightBorder | ColliderType.leftBorder | ColliderType.Monster

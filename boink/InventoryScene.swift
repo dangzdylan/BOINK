@@ -35,7 +35,6 @@ class InventoryScene: SKScene{
 
         
         
-        //
         
     }
     

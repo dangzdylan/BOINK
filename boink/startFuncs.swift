@@ -20,9 +20,7 @@ func addStartLabels(self: SKScene){
     
 }
 
-
-func startGame(self:SKScene){
-    
+func hideStartLabels(){
     //hide labels
     score.isHidden = false
     tapToLabel.isHidden = true
@@ -35,7 +33,10 @@ func startGame(self:SKScene){
     leaderboardButton.removeFromParent()
     shopButton.removeFromParent()
     inventoryButton.removeFromParent()
-    
+}
+
+
+func startGame(self:SKScene){
     
     //set direction
     goingRight = false
@@ -72,22 +73,23 @@ func addTitleLabel(self:SKScene){
     
     titleLabel.fontName = currentFont
     titleLabel.fontColor = color(hex:"8D8A8C")
-    titleLabel.fontSize = screenHeight/22
+    titleLabel.fontSize = screenHeight/20
     titleLabel.position = CGPoint(x: 0, y: menuBoxY)
     
     self.addChild(titleLabel)
     
+    let endHeight = screenHeight/8.5
     //time1
     Timer.scheduledTimer(withTimeInterval: 0.2, repeats: false){timer in
         
         
-        let move1 = SKAction.move(to: CGPoint(x:0, y:screenHeight/10), duration: 0.7)
+        let move1 = SKAction.move(to: CGPoint(x:0, y:endHeight), duration: 0.7)
         let move2 = SKAction.run {
             //playSound(soundPlayer: SPKey.titleStompSoundPlayer)
         }
-        let move3 = SKAction.move(to: CGPoint(x:0, y:screenHeight/10 + screenHeight/50), duration: 0.2)
+        let move3 = SKAction.move(to: CGPoint(x:0, y:endHeight + screenHeight/50), duration: 0.2)
         move3.timingMode = .easeOut
-        let move4 = SKAction.move(to: CGPoint(x:0, y:screenHeight/10), duration: 0.08)
+        let move4 = SKAction.move(to: CGPoint(x:0, y:endHeight), duration: 0.08)
         move4.timingMode = .easeIn
         
         let moveGroup1 = SKAction.group([move1, move2])
@@ -116,11 +118,11 @@ func addTapToStartLabels(self:SKScene){
     tapToLabel.fontName = currentFont
     startLabel.fontName = currentFont
     
-    tapToLabel.fontSize = screenHeight/35
-    startLabel.fontSize = screenHeight/35
+    tapToLabel.fontSize = screenHeight/33
+    startLabel.fontSize = screenHeight/33
     
-    tapToLabel.position = CGPoint(x: 0, y: screenHeight/24)
-    startLabel.position = CGPoint(x: 0, y: -screenHeight/16)
+    tapToLabel.position = CGPoint(x: 0, y: screenHeight/16)
+    startLabel.position = CGPoint(x: 0, y: -screenHeight/10.5)
     
     
     tapToLabel.fontColor = color(hex:"CDCACC")
@@ -134,11 +136,41 @@ func addTapToStartLabels(self:SKScene){
 
 func callStartFuncs(self:SKScene){
     
-    
-    
-    gameHasStarted = true
     startGame(self: self)
     movePlayer(self:self)
     
     replayButtonHasBeenClicked = false
+}
+
+
+func playPlayerShrinkAnimation(self:SKScene){
+    //vars
+    playerShrinkAnimationActive = true
+    gameHasStarted = true
+    hideStartLabels()
+    
+    //dec actions
+    let shrink = SKAction.resize(toWidth: monsterDiameter, height: monsterDiameter, duration: 0.6)
+    shrink.timingMode = .easeIn
+    
+    let start = SKAction.run {
+        callStartFuncs(self: self)
+        playerShrinkAnimationActive = false
+    }
+    
+    //sound
+    var t:Double = 0
+    if replayButtonHasBeenClicked{
+        t = 0.75
+    }
+    Timer.scheduledTimer(withTimeInterval: t, repeats: false){timer in
+        playSound(soundPlayer: SPKey.playerShrink)
+    }
+    
+    //animation then start
+    Player.run(SKAction.sequence([shrink, start]))
+    
+    
+    
+    
 }
