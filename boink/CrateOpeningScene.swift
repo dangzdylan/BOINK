@@ -14,6 +14,7 @@ import UIKit
 
 class CrateOpeningScene: SKScene{
     override func didMove(to view: SKView) {
+        
         self.backgroundColor = .gray
         addCrateImage(self: self)
         crateOpeningAnimation(self: self)
