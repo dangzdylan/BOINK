@@ -94,6 +94,7 @@ class InventoryScene: SKScene{
                 
             }else if equipButton.contains(location) && clicked.equipButton{
                 equipButtonClicked()
+                goBackToGameScene(self: self)
                 
             }else{
                 resetButtonTextures()
