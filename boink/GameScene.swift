@@ -36,7 +36,8 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         addLeaderboardButton(self: self)
         addShopButton(self: self)
         addInventoryButton(self: self, pos: CGPoint(x: leaderboardButton.position.x - screenHeight/18, y: leaderboardButton.position.y), diameter: screenHeight / 30)
-
+        addTutorialImage(self: self)
+        
         determineRank(self:self)
         
         if replayButtonHasBeenClicked{

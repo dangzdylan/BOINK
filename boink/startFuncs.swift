@@ -27,6 +27,7 @@ func hideStartLabels(){
     startLabel.isHidden = true
     
     //remove
+    tutorialImage.removeFromParent()
     titleLabel.removeFromParent()
     infoButton.removeFromParent()
     volumeButton.removeFromParent()
@@ -139,6 +140,7 @@ func callStartFuncs(self:SKScene){
     startGame(self: self)
     movePlayer(self:self)
     
+    subtractGameCount()
     replayButtonHasBeenClicked = false
 }
 
@@ -172,5 +174,55 @@ func playPlayerShrinkAnimation(self:SKScene){
     
     
     
+    
+}
+
+
+
+func addTutorialImage(self:SKScene){
+    
+    //init game play count
+    if userDefaults.value(forKey: UDKey.numberOfGamesPlayed) == nil {
+        userDefaults.setValue(3, forKey: UDKey.numberOfGamesPlayed)
+    }
+    
+    
+    //dec nodes
+    tutorialImage = SKSpriteNode(color: .blue, size: CGSize(width: screenHeight/30, height: screenHeight/15))
+    tutorialImage.position = CGPoint(x: screenHeight/14, y:-screenHeight/45)
+    
+    tutorialImage.texture = SKTexture(imageNamed: "tutorialImage")
+    
+    //dec actions
+    let arr = TutorialFramesArray()
+    let ani = SKAction.animate(with: arr, timePerFrame: 1/30)
+    
+    let wait = SKAction.wait(forDuration: 2)
+    tutorialImage.run(SKAction.repeatForever(SKAction.sequence([ani,wait])))
+    
+    //add
+    if userDefaults.value(forKey: UDKey.numberOfGamesPlayed) as! Int > 0{
+        self.addChild(tutorialImage)
+    }
+}
+
+func TutorialFramesArray() -> [SKTexture]{
+    var arr:[SKTexture] = []
+    
+    for i in 1...64{
+        arr.append(SKTexture(imageNamed: "tutorialImageFrame" + String(i)))
+    }
+    
+    return arr
+    
+}
+
+func subtractGameCount(){
+    
+    let val = (userDefaults.value(forKey: UDKey.numberOfGamesPlayed) as! Int) - 1
+    let a = max(val, 0)
+    
+    
+    userDefaults.setValue(a, forKey: UDKey.numberOfGamesPlayed)
     
 }

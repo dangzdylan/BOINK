@@ -24,6 +24,8 @@ public var menuAnimationActive = false
 public var replayButtonHasBeenClicked = false
 public var playerShrinkAnimationActive = false
 
+public var tutorialImage = SKSpriteNode()
+
 
 //score
 public var score  = SKLabelNode()
@@ -59,6 +61,7 @@ public struct UDKey{
     static let volumeOn = "volumeOn"
     static let currentAppVersion = "currentAppVersion"
     static let equippedSkin = "equippedSkin"
+    static let numberOfGamesPlayed = "numberOfGamesPlayed"
     
 }
 
