@@ -35,12 +35,14 @@ class ShopScene : SKScene{
             
             //back button clicked texture
             if backToGameButton.contains(location){
+                pClickButtonHaptic()
                 backToGameButton.texture = SKTexture(imageNamed: "clickedBackButton")
                 clicked.backButton = true
             }
             
             //purchase clicked texture
             if buyButton.contains(location) && !buyButtonAnimationActive{
+                pClickButtonHaptic()
                 buyButton.texture = SKTexture(imageNamed: "clickedBuyButton")
                 clicked.buyButton = true
             }

@@ -71,6 +71,7 @@
 		FCDBEDCE27C2079A00B4977D /* ShopScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCDBEDCD27C2079A00B4977D /* ShopScene.swift */; };
 		FCDBEDD027C2094100B4977D /* InventoryScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCDBEDCF27C2094100B4977D /* InventoryScene.swift */; };
 		FCDBEDD227C209A700B4977D /* InventoryScene.sks in Resources */ = {isa = PBXBuildFile; fileRef = FCDBEDD127C209A700B4977D /* InventoryScene.sks */; };
+		FCFA017C28CB0F30009B68E7 /* haptics.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCFA017B28CB0F30009B68E7 /* haptics.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -161,6 +162,7 @@
 		FCDBEDCD27C2079A00B4977D /* ShopScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShopScene.swift; sourceTree = "<group>"; };
 		FCDBEDCF27C2094100B4977D /* InventoryScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InventoryScene.swift; sourceTree = "<group>"; };
 		FCDBEDD127C209A700B4977D /* InventoryScene.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; name = InventoryScene.sks; path = ../InventoryScene.sks; sourceTree = "<group>"; };
+		FCFA017B28CB0F30009B68E7 /* haptics.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = haptics.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -271,6 +273,7 @@
 				FC63C32926ED691300738FB2 /* checklist.swift */,
 				FCAF25F526E5924900DD8766 /* gameStateVars.swift */,
 				FC1DE3C626DC8C5D00BD359E /* nodeVars.swift */,
+				FCFA017B28CB0F30009B68E7 /* haptics.swift */,
 				FC6C5B0027C8CB790078DBDC /* SKINS.swift */,
 				FC0E00F026D3788F000C3987 /* textures.swift */,
 				FC1B61C2278FF5020033A741 /* gameCenter.swift */,
@@ -514,6 +517,7 @@
 				FCAF25EE26E58FD900DD8766 /* sounds.swift in Sources */,
 				FC1DE3DF26DC8C8B00BD359E /* gameOverFuncs.swift in Sources */,
 				FC63C32A26ED691300738FB2 /* checklist.swift in Sources */,
+				FCFA017C28CB0F30009B68E7 /* haptics.swift in Sources */,
 				FCC5EC9327265F6500EA990A /* color.swift in Sources */,
 				FCBEB22E26D0A46F000E1FD0 /* GameViewController.swift in Sources */,
 				FCDBEDD027C2094100B4977D /* InventoryScene.swift in Sources */,
@@ -694,7 +698,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 9;
+				CURRENT_PROJECT_VERSION = 10;
 				DEVELOPMENT_TEAM = 792J4FLJ9S;
 				INFOPLIST_FILE = boink/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
@@ -702,7 +706,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 2.3.0;
+				MARKETING_VERSION = 2.4.0;
 				PRODUCT_BUNDLE_IDENTIFIER = DzungDang.boink;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
@@ -718,7 +722,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 9;
+				CURRENT_PROJECT_VERSION = 10;
 				DEVELOPMENT_TEAM = 792J4FLJ9S;
 				INFOPLIST_FILE = boink/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
@@ -726,7 +730,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 2.3.0;
+				MARKETING_VERSION = 2.4.0;
 				PRODUCT_BUNDLE_IDENTIFIER = DzungDang.boink;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";

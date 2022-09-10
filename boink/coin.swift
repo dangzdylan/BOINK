@@ -36,6 +36,10 @@ func addCoinObject(self:SKScene){
 }
 
 func touchCoin(self:SKScene){
+    //haptic
+    playImpactHaptic(type: .medium)
+    
+    //add to score and coin purse
     addToScore(self:self)
     addToCoinPurse(self: self)
     

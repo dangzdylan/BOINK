@@ -47,20 +47,24 @@ class InventoryScene: SKScene{
             if !arrowAnimationOn{
                 //back TEXTURE
                 if backToGameButton.contains(location){
+                    pClickButtonHaptic()
                     backToGameButton.texture = SKTexture(imageNamed: "clickedBackButton")
                     clicked.backButton = true
                     
                 //right arrow TEXTURE
                 }else if rightInventoryArrow.contains(location){
+                    pClickButtonHaptic()
                     rightInventoryArrow.texture = SKTexture(imageNamed:"clickedRightArrow")
                     clicked.invRightArrow = true
                 //left arrow TEXTURE
                 }else if leftInventoryArrow.contains(location){
+                    pClickButtonHaptic()
                     leftInventoryArrow.texture = SKTexture(imageNamed:"clickedLeftArrow")
                     clicked.invLeftArrow = true
                     
                 //equip button
                 }else if equipButton.contains(location){
+                    pClickButtonHaptic()
                     clicked.equipButton = true
                 }
             }

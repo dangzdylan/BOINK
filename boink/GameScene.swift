@@ -60,6 +60,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
                 let location = touch.location(in: self)
                 
                 if volumeButton.contains(location){
+                    pClickButtonHaptic()
                     toggleVolume()
                 
                 //press info button
@@ -67,18 +68,22 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
                         //add back info button and exit menu
                         infoMenuExit(self: self)
                 }else if infoButton.contains(location){
+                    pClickButtonHaptic()
                     addInfoMenu(self: self)
                     
                 //CHECK ALL THREE BUTTONS
                 }else if leaderboardButton.contains(location){
+                    pClickButtonHaptic()
                     leaderboardButton.texture = SKTexture(imageNamed: "clickedLeaderboardButton")
                     clicked.leaderboardButton = true
                     
                 }else if shopButton.contains(location){
+                    pClickButtonHaptic()
                     shopButton.texture = SKTexture(imageNamed: "clickedShopButton")
                     clicked.shopButton = true
                     
                 }else if inventoryButton.contains(location){
+                    pClickButtonHaptic()
                     inventoryButton.texture = SKTexture(imageNamed: "clickedInventoryButton")
                     clicked.inventoryButton = true
                     
@@ -99,11 +104,13 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
                 let location = touch.location(in: self)
                 if playAgain.contains(location) && playAgainButtonActive{
                     
+                    pClickButtonHaptic()
                     clicked.playAgainButton = true
                     playAgain.texture = SKTexture(imageNamed: "clickedReplayButton")
                     
                 }else if backToHomeButton.contains(location) && playAgainButtonActive{
                     
+                    pClickButtonHaptic()
                     clicked.backToHomeButton = true
                     backToHomeButton.texture = SKTexture(imageNamed: "clickedMenuHomeButton")
                     
@@ -124,7 +131,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
             
             if !gameHasStarted{
                 if inventoryButton.contains(location) && clicked.inventoryButton{
-                   
+                
                     goToInventory(self: self)
                 
                 //shop
@@ -145,9 +152,13 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
             //replay button
             }else if gameHasEnded && !menuAnimationActive{
                 if playAgain.contains(location) && clicked.playAgainButton{
+                    
                     replayButtonClicked(self: self)
+                    
                 }else if backToHomeButton.contains(location) && clicked.backToHomeButton{
+                    
                     menuHomeButtonClicked(self: self)
+                    
                 }else{
                     resetButtonTextures()
                 }
