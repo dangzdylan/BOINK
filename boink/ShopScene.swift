@@ -16,7 +16,7 @@ import UIKit
 class ShopScene : SKScene{
     
     override func didMove(to view: SKView) {
-        addCoinPurseText(self: self)
+        addCoinPurseText(self: self, pos: CGPoint(x:-self.frame.width / 2 + screenHeight / 20 - screenHeight/75, y: self.frame.height/2 - screenHeight / 20), fSize: screenHeight / 50, alph:1)
         addCrateImage(self: self)
         addBackToGameButton(self: self, pos: CGPoint(x: 0, y: -self.frame.height/2 + screenHeight/20), diameter: screenHeight / 25)
         addBuyButton(self: self)

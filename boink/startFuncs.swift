@@ -34,6 +34,8 @@ func hideStartLabels(){
     leaderboardButton.removeFromParent()
     shopButton.removeFromParent()
     inventoryButton.removeFromParent()
+    displayedCoinPurse.removeFromParent()
+    coinImageNode.removeFromParent()
 }
 
 

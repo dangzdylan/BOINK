@@ -20,6 +20,8 @@ func addShopButton(self:SKScene){
     shopButton.texture = SKTexture(imageNamed: "shopButtonIcon")
     
     self.addChild(shopButton)
+    
+    addCoinPurseText(self: self, pos: CGPoint(x: shopButton.position.x + screenHeight/400, y: shopButton.position.y - screenHeight/37), fSize: screenHeight/100, alph:0.7)
 }
 
 
@@ -136,7 +138,8 @@ func addCrateImage(self:SKScene){
 
 
 //COINS LABEL
-func addCoinPurseText(self:SKScene){
+public var coinImageNode = SKSpriteNode()
+func addCoinPurseText(self:SKScene, pos:CGPoint, fSize: CGFloat, alph:CGFloat){
     if userDefaults.value(forKey: UDKey.coinPurse) == nil{
         userDefaults.setValue(0, forKey: UDKey.coinPurse)
     }
@@ -144,19 +147,20 @@ func addCoinPurseText(self:SKScene){
     //coin number
     let coinPurse:Int = userDefaults.value(forKey: UDKey.coinPurse) as! Int
     displayedCoinPurse = SKLabelNode(text: String(coinPurse))
-    displayedCoinPurse.fontSize = screenHeight / 50
+    displayedCoinPurse.fontSize = fSize
     displayedCoinPurse.fontColor = .black
     displayedCoinPurse.fontName = currentFont
     displayedCoinPurse.horizontalAlignmentMode = .left
+    displayedCoinPurse.alpha = alph
     
-    let margins = screenHeight / 20
-    displayedCoinPurse.position = CGPoint(x:-self.frame.width / 2 + margins - screenHeight/75, y: self.frame.height/2 - margins)
+    displayedCoinPurse.position = pos
     
     
     //coin image
-    let coinImageNode = SKSpriteNode(color: .white, size: CGSize(width: displayedCoinPurse.fontSize, height: displayedCoinPurse.fontSize))
-    coinImageNode.position = CGPoint(x:displayedCoinPurse.position.x - screenHeight/60, y: displayedCoinPurse.position.y + screenHeight/140)
+    coinImageNode = SKSpriteNode(color: .white, size: CGSize(width: displayedCoinPurse.fontSize, height: displayedCoinPurse.fontSize))
+    coinImageNode.position = CGPoint(x:displayedCoinPurse.position.x - fSize/1.2, y: displayedCoinPurse.position.y + fSize/2.65)
     coinImageNode.texture = SKTexture(imageNamed: "coin")
+    coinImageNode.alpha = alph
     
     
     self.addChild(displayedCoinPurse)
@@ -197,3 +201,6 @@ func addMoreSkinsComingSoonBox(self:SKScene){
     
     
 }
+
+
+

@@ -26,7 +26,7 @@ func addInfoMenu(self:SKScene){
     infoMenuActive = true
     makeMenuBox(self: self, pos:CGPoint(x: 0, y: 0))
     
-    gameVersionLabel = SKLabelNode(text: "BOINK!  VERSION 2.2.0")
+    gameVersionLabel = SKLabelNode(text: "BOINK!  VERSION 2.4.0")
     gameVersionLabel.fontColor = .white
     gameVersionLabel.fontName = currentFont
     gameVersionLabel.fontSize = screenHeight/90
@@ -40,7 +40,7 @@ func addInfoMenu(self:SKScene){
     aboutCreaterLabel.position = menuBox.position
     aboutCreaterLabel.zPosition = menuBox.zPosition + 1
     
-    aboutHelperLabel = SKLabelNode(text:"**GRAPHICS BY GIAN DAVID**")
+    aboutHelperLabel = SKLabelNode(text:"*GRAPHIC INSPO: GIAN DAVID*")
     aboutHelperLabel.fontColor = .white
     aboutHelperLabel.fontName = currentFont
     aboutHelperLabel.fontSize = screenHeight/120
