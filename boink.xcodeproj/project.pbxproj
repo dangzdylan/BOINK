@@ -72,6 +72,7 @@
 		FCDBEDD027C2094100B4977D /* InventoryScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCDBEDCF27C2094100B4977D /* InventoryScene.swift */; };
 		FCDBEDD227C209A700B4977D /* InventoryScene.sks in Resources */ = {isa = PBXBuildFile; fileRef = FCDBEDD127C209A700B4977D /* InventoryScene.sks */; };
 		FCE92DFC293D769700562B0B /* helpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCE92DFB293D769700562B0B /* helpers.swift */; };
+		FCE92DFE293DABA000562B0B /* reviewRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCE92DFD293DABA000562B0B /* reviewRequest.swift */; };
 		FCFA017C28CB0F30009B68E7 /* haptics.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCFA017B28CB0F30009B68E7 /* haptics.swift */; };
 /* End PBXBuildFile section */
 
@@ -164,6 +165,7 @@
 		FCDBEDCF27C2094100B4977D /* InventoryScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InventoryScene.swift; sourceTree = "<group>"; };
 		FCDBEDD127C209A700B4977D /* InventoryScene.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; name = InventoryScene.sks; path = ../InventoryScene.sks; sourceTree = "<group>"; };
 		FCE92DFB293D769700562B0B /* helpers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = helpers.swift; sourceTree = "<group>"; };
+		FCE92DFD293DABA000562B0B /* reviewRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = reviewRequest.swift; sourceTree = "<group>"; };
 		FCFA017B28CB0F30009B68E7 /* haptics.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = haptics.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -302,6 +304,7 @@
 				FC1DE3F626DC8CB400BD359E /* scoring.swift */,
 				FCAF25ED26E58FD900DD8766 /* sounds.swift */,
 				FC3686AD27A918A1007CF7E5 /* version.swift */,
+				FCE92DFD293DABA000562B0B /* reviewRequest.swift */,
 				FCE92DFB293D769700562B0B /* helpers.swift */,
 				FCBEB22D26D0A46F000E1FD0 /* GameViewController.swift */,
 				FCBEB22526D0A46F000E1FD0 /* AppDelegate.swift */,
@@ -501,6 +504,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				FCDBEDC427C1B94800B4977D /* classes.swift in Sources */,
+				FCE92DFE293DABA000562B0B /* reviewRequest.swift in Sources */,
 				FC1DE3E726DC8C9800BD359E /* monster.swift in Sources */,
 				FC5AB61F270D68E1009535D5 /* scoring.swift in Sources */,
 				FC3686AE27A918A1007CF7E5 /* version.swift in Sources */,

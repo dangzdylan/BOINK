@@ -62,6 +62,7 @@ public struct UDKey{
     static let currentAppVersion = "currentAppVersion"
     static let equippedSkin = "equippedSkin"
     static let numberOfGamesPlayed = "numberOfGamesPlayed"
+    static let lastReviewRequest = "lastReviewRequested"
     
 }
 

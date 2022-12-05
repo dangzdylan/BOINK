@@ -176,13 +176,23 @@ func replayButtonClicked(self:SKScene){
 func menuHomeButtonClicked(self:SKScene){
     backToHomeButton.texture = SKTexture(imageNamed: "menuHomeButton")
     playAgainButtonActive = false
+    
+ 
+    
+    
     menuExit(self: self, boxArr: [menuBox, playAgain, scoreWordLabel, scoreNumberLabel, backToHomeButton], moveOutDur: 1)
     Timer.scheduledTimer(withTimeInterval: 1, repeats: false){timer in
         menuAnimationActive = false
         
+        //scene transition
         self.removeAllChildren()
         let temp = GameScene(fileNamed: "GameScene")
         self.scene?.view?.presentScene(temp!, transition: SKTransition.fade(withDuration: 0.8))
+        
+        //check if review request
+        if userDefaults.value(forKey: UDKey.highScore) as! Int >= 10{
+            requestReview()
+        }
     }
     
 }

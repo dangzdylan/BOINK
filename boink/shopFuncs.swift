@@ -20,7 +20,16 @@ func addShopButton(self:SKScene){
     shopButton.texture = SKTexture(imageNamed: "shopButtonIcon")
     
     self.addChild(shopButton)
+    
+    
+    
+    if userDefaults.value(forKey: UDKey.coinPurse) == nil{
+        userDefaults.setValue(0, forKey: UDKey.coinPurse)
+    }
     let purse:Int = userDefaults.value(forKey: UDKey.coinPurse) as! Int
+    
+    
+    
     addCoinPurseText(self: self, pos: CGPoint(x: shopButton.position.x - (screenHeight/400 * (CGFloat)(intLength(num: purse) - 1)), y: shopButton.position.y - screenHeight/37), fSize: screenHeight/100, alph:0.6)
 }
 
