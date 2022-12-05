@@ -71,6 +71,7 @@
 		FCDBEDCE27C2079A00B4977D /* ShopScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCDBEDCD27C2079A00B4977D /* ShopScene.swift */; };
 		FCDBEDD027C2094100B4977D /* InventoryScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCDBEDCF27C2094100B4977D /* InventoryScene.swift */; };
 		FCDBEDD227C209A700B4977D /* InventoryScene.sks in Resources */ = {isa = PBXBuildFile; fileRef = FCDBEDD127C209A700B4977D /* InventoryScene.sks */; };
+		FCE92DFC293D769700562B0B /* helpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCE92DFB293D769700562B0B /* helpers.swift */; };
 		FCFA017C28CB0F30009B68E7 /* haptics.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCFA017B28CB0F30009B68E7 /* haptics.swift */; };
 /* End PBXBuildFile section */
 
@@ -162,6 +163,7 @@
 		FCDBEDCD27C2079A00B4977D /* ShopScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShopScene.swift; sourceTree = "<group>"; };
 		FCDBEDCF27C2094100B4977D /* InventoryScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InventoryScene.swift; sourceTree = "<group>"; };
 		FCDBEDD127C209A700B4977D /* InventoryScene.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; name = InventoryScene.sks; path = ../InventoryScene.sks; sourceTree = "<group>"; };
+		FCE92DFB293D769700562B0B /* helpers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = helpers.swift; sourceTree = "<group>"; };
 		FCFA017B28CB0F30009B68E7 /* haptics.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = haptics.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -300,6 +302,7 @@
 				FC1DE3F626DC8CB400BD359E /* scoring.swift */,
 				FCAF25ED26E58FD900DD8766 /* sounds.swift */,
 				FC3686AD27A918A1007CF7E5 /* version.swift */,
+				FCE92DFB293D769700562B0B /* helpers.swift */,
 				FCBEB22D26D0A46F000E1FD0 /* GameViewController.swift */,
 				FCBEB22526D0A46F000E1FD0 /* AppDelegate.swift */,
 				FC83E57927714B7800748FB4 /* Main.storyboard */,
@@ -520,6 +523,7 @@
 				FCFA017C28CB0F30009B68E7 /* haptics.swift in Sources */,
 				FCC5EC9327265F6500EA990A /* color.swift in Sources */,
 				FCBEB22E26D0A46F000E1FD0 /* GameViewController.swift in Sources */,
+				FCE92DFC293D769700562B0B /* helpers.swift in Sources */,
 				FCDBEDD027C2094100B4977D /* InventoryScene.swift in Sources */,
 				FCBEB22626D0A46F000E1FD0 /* AppDelegate.swift in Sources */,
 				FC6C5B0127C8CB790078DBDC /* SKINS.swift in Sources */,

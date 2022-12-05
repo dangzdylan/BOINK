@@ -20,8 +20,8 @@ func addShopButton(self:SKScene){
     shopButton.texture = SKTexture(imageNamed: "shopButtonIcon")
     
     self.addChild(shopButton)
-    
-    addCoinPurseText(self: self, pos: CGPoint(x: shopButton.position.x + screenHeight/400, y: shopButton.position.y - screenHeight/37), fSize: screenHeight/100, alph:0.7)
+    let purse:Int = userDefaults.value(forKey: UDKey.coinPurse) as! Int
+    addCoinPurseText(self: self, pos: CGPoint(x: shopButton.position.x - (screenHeight/400 * (CGFloat)(intLength(num: purse) - 1)), y: shopButton.position.y - screenHeight/37), fSize: screenHeight/100, alph:0.6)
 }
 
 
@@ -158,7 +158,7 @@ func addCoinPurseText(self:SKScene, pos:CGPoint, fSize: CGFloat, alph:CGFloat){
     
     //coin image
     coinImageNode = SKSpriteNode(color: .white, size: CGSize(width: displayedCoinPurse.fontSize, height: displayedCoinPurse.fontSize))
-    coinImageNode.position = CGPoint(x:displayedCoinPurse.position.x - fSize/1.2, y: displayedCoinPurse.position.y + fSize/2.65)
+    coinImageNode.position = CGPoint(x: pos.x - fSize/1.5, y: pos.y + fSize/2.65)
     coinImageNode.texture = SKTexture(imageNamed: "coin")
     coinImageNode.alpha = alph
     

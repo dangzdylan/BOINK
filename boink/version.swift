@@ -28,13 +28,11 @@ func isUpdateAvailable() throws -> Bool {
         throw VersionError.invalidBundleInfo
     }
     
-    print(identifier)
     let data = try Data(contentsOf: url)
     guard let json = try JSONSerialization.jsonObject(with: data, options: [.allowFragments]) as? [String: Any] else {
         throw VersionError.invalidResponse
     }
     if let result = (json["results"] as? [Any])?.first as? [String: Any], let version = result["version"] as? String {
-        print (version, currentVersion)
         
         return needsUpdate(appVers: version, devVers: currentVersion)
         //return version != currentVersion
@@ -45,7 +43,7 @@ func isUpdateAvailable() throws -> Bool {
 func needsUpdate(appVers:String, devVers:String)-> Bool{
     
     //debugging
-    print(appVers, devVers, devVers[devVers.index(devVers.startIndex, offsetBy: 0)], devVers[devVers.index(devVers.startIndex, offsetBy: 2)])
+    //print(appVers, devVers, devVers[devVers.index(devVers.startIndex, offsetBy: 0)], devVers[devVers.index(devVers.startIndex, offsetBy: 2)])
     if devVers[devVers.index(devVers.startIndex, offsetBy: 0)] > appVers[appVers.index(appVers.startIndex, offsetBy: 0)] || devVers[devVers.index(devVers.startIndex, offsetBy: 2)] > appVers[appVers.index(appVers.startIndex, offsetBy: 2)]{
         return false
     }
