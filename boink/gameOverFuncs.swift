@@ -33,7 +33,7 @@ func gameOver(self:SKScene){
 
 func gameOverAnimation(self: SKScene){
     //vibration
-    AudioServicesPlayAlertSound(SystemSoundID(kSystemSoundID_Vibrate))
+    //AudioServicesPlayAlertSound(SystemSoundID(kSystemSoundID_Vibrate))
     
     //animation
     stopPlayerTextureMove = true
