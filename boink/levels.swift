@@ -55,7 +55,6 @@ func secondLevel(self:SKScene){
 func thirdLevel(self:SKScene){
     chooseBackgroundIndex(self: self, ind: 2)
     spawnMonster(self: self)
-    coinMultiplier = 2
     setNodeSpeeds(p: 1, m: 1)
 }
 
@@ -68,11 +67,11 @@ func fourthLevel(self:SKScene){
 func fifthLevel(self:SKScene){
     chooseBackgroundIndex(self: self, ind: 4)
     spawnMonster(self: self)
-    coinMultiplier = 3
     setNodeSpeeds(p: 0.897, m: 0.895)
 }
 func sixthLevel(self:SKScene){
     chooseBackgroundIndex(self: self, ind: 5)
+    coinMultiplier = 2
     setNodeSpeeds(p: 0.9082, m: 0.905)
 }
 func seventhLevel(self:SKScene){
@@ -99,7 +98,7 @@ func tenthLevel(self:SKScene){
 func eleventhLevel(self:SKScene){
     chooseBackgroundIndex(self: self, ind: 10)
     spawnMonster(self: self)
-    coinMultiplier = 4
+    coinMultiplier = 3
     setNodeSpeeds(p: 0.914, m: 0.906)
 }
 
@@ -118,7 +117,7 @@ func thirteenthLevel(self:SKScene){
 func fourteenthLevel(self:SKScene){
     chooseBackgroundIndex(self: self, ind: 13)
     spawnMonster(self: self)
-    coinMultiplier = 5
+    coinMultiplier = 4
     setNodeSpeeds(p: 0.905, m: 0.905)
 }
 

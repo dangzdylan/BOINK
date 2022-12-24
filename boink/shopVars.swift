@@ -13,7 +13,7 @@ import UIKit
 
 
 
-public let mysterySkinPrice = 250
+public let mysterySkinPrice = 100
 
 public var shopButton = SKSpriteNode()
 public var backToGameButton = SKSpriteNode()
