@@ -17,7 +17,7 @@ func chooseRandomSkin(self: SKScene){
     let randomNum = Int.random(in: 0..<101)
     let skins:[String]
     
-    if randomNum <= 95{
+    if randomNum <= 92{
         skins = availableSkins(rarity: rarityKey.common)
     }else{
         skins = availableSkins(rarity: rarityKey.epic)
