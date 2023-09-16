@@ -119,9 +119,9 @@ func getIndexOfEquippedSkin(){
     }
 }
 
-//RIGHT ARROW
-func rightArrowClicked(self: SKScene){
-    rightInventoryArrow.texture = SKTexture(imageNamed: "rightArrow")
+//LEFT ARROW
+func leftArrowClicked(self: SKScene){
+    leftInventoryArrow.texture = SKTexture(imageNamed: "leftArrow")
     //check if loop
     let invList = userDefaults.value(forKey: UDKey.inventory) as! [String]
     if currentSkinInd + 1 == invList.count{
@@ -141,9 +141,9 @@ func rightArrowClicked(self: SKScene){
     }
 }
 
-//LEFT ARROW
-func leftArrowClicked(self:SKScene){
-    leftInventoryArrow.texture = SKTexture(imageNamed: "leftArrow")
+//RIGHT ARROW
+func rightArrowClicked(self:SKScene){
+    rightInventoryArrow.texture = SKTexture(imageNamed: "rightArrow")
     //check if loop
     let invList = userDefaults.value(forKey: UDKey.inventory) as! [String]
     if currentSkinInd == 0{
