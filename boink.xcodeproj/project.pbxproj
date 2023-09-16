@@ -122,6 +122,7 @@
 		FC3686AD27A918A1007CF7E5 /* version.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = version.swift; sourceTree = "<group>"; };
 		FC50448D2885353800D83E5B /* inventoryArrowClick.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = inventoryArrowClick.wav; sourceTree = "<group>"; };
 		FC63C32926ED691300738FB2 /* checklist.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = checklist.swift; sourceTree = "<group>"; };
+		FC63E68B2AB64CF6007F4855 /* boink.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = boink.entitlements; sourceTree = "<group>"; };
 		FC6C5AFE27C8B55B0078DBDC /* inventoryVars.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = inventoryVars.swift; sourceTree = "<group>"; };
 		FC6C5B0027C8CB790078DBDC /* SKINS.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SKINS.swift; sourceTree = "<group>"; };
 		FC76F48B2890B3550085BCC1 /* playerShrink.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = playerShrink.wav; sourceTree = "<group>"; };
@@ -274,6 +275,7 @@
 		FCBEB22426D0A46F000E1FD0 /* boink */ = {
 			isa = PBXGroup;
 			children = (
+				FC63E68B2AB64CF6007F4855 /* boink.entitlements */,
 				FC63C32926ED691300738FB2 /* checklist.swift */,
 				FCAF25F526E5924900DD8766 /* gameStateVars.swift */,
 				FC1DE3C626DC8C5D00BD359E /* nodeVars.swift */,
@@ -704,6 +706,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = boink/boink.entitlements;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 13;
@@ -728,6 +731,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = boink/boink.entitlements;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 13;
