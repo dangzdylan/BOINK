@@ -10,5 +10,4 @@ You can download the game on the App Store with the link below:
 
 [**Download Boink on the App Store**](https://apps.apple.com/us/app/boink-tap-to-play/id1602935130)
 
-⏬ **Tap here to start playing now!** ⏬
 
